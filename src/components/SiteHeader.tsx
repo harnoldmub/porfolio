@@ -29,7 +29,7 @@ export default function SiteHeader() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-4 sm:px-5 sm:pt-5">
-      <div className="mx-auto max-w-[1420px] rounded-[1.8rem] border border-black/6 bg-white/82 px-4 py-3 shadow-[0_18px_60px_rgba(15,23,42,0.08)] backdrop-blur sm:px-6">
+      <div className="header-enter mx-auto max-w-[1420px] rounded-[1.8rem] border border-black/6 bg-white/82 px-4 py-3 shadow-[0_18px_60px_rgba(15,23,42,0.08)] backdrop-blur sm:px-6">
         <div className="flex items-center justify-between gap-4">
           <Link
             href="/"

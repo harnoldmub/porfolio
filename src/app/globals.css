@@ -557,6 +557,41 @@ body::before {
   }
 }
 
+.card-lift {
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.1);
+}
+
+.icon-nudge {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a:hover > .icon-nudge,
+button:hover > .icon-nudge,
+.group:hover .icon-nudge {
+  transform: translate(2px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 details > summary {
   list-style: none;
 }

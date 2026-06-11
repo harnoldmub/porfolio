@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, ExternalLink, X } from "lucide-react";
 
 import ProjectPosterArtwork from "@/components/ProjectPosterArtwork";
@@ -20,6 +21,7 @@ export default function ProjectsShowcase({
 }: ProjectsShowcaseProps) {
   const [active, setActive] = useState("Tous");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const reduceMotion = useReducedMotion();
 
   const categories = useMemo(
     () => ["Tous", ...Array.from(new Set(projects.map((project) => project.category)))],
@@ -76,11 +78,19 @@ export default function ProjectsShowcase({
           showFilters ? "mt-8 sm:grid-cols-2 lg:grid-cols-3" : compact ? "mt-14 lg:grid-cols-3" : "mt-8 sm:grid-cols-2 lg:grid-cols-3"
         }`}
       >
-        {filteredProjects.map((project) => (
-          <button
+        {filteredProjects.map((project, index) => (
+          <motion.button
             key={project.slug}
             type="button"
             onClick={() => setSelectedProject(project)}
+            initial={reduceMotion ? false : { opacity: 0, y: 32, filter: "blur(6px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "0px 0px -60px 0px" }}
+            transition={{
+              duration: 0.65,
+              delay: (index % 3) * 0.1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="project-card group overflow-hidden rounded-[2rem] bg-[#fffdf9] text-left shadow-lg shadow-slate-950/5 ring-1 ring-[#e7dbc8] transition hover:shadow-2xl"
           >
             <div className={`${compact ? "h-64" : "h-52"} relative overflow-hidden bg-slate-100`}>
@@ -88,6 +98,7 @@ export default function ProjectsShowcase({
                 src={project.screenshot}
                 alt={`${project.name} — vue desktop`}
                 fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover object-top transition duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/30 to-transparent" />
@@ -128,24 +139,33 @@ export default function ProjectsShowcase({
               </div>
               <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-[#9f7a3f]">
                 Ouvrir l&apos;affiche
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="icon-nudge h-4 w-4" />
               </div>
             </div>
-          </button>
+          </motion.button>
         ))}
       </div>
 
+      <AnimatePresence>
       {selectedProject ? (
-        <div
+        <motion.div
           className="fixed inset-0 z-[80] flex items-center justify-center bg-[#06070b]/82 px-4 py-6 backdrop-blur-md"
           onClick={() => setSelectedProject(null)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
         >
-          <div
+          <motion.div
             role="dialog"
             aria-modal="true"
             aria-labelledby="project-popup-title"
-            className="modal-rise relative max-h-[92vh] w-full max-w-7xl overflow-auto rounded-[2.4rem] bg-[#f8f1e7] p-4 shadow-[0_40px_120px_rgba(0,0,0,0.5)] sm:p-6"
+            className="relative max-h-[92vh] w-full max-w-7xl overflow-auto rounded-[2.4rem] bg-[#f8f1e7] p-4 shadow-[0_40px_120px_rgba(0,0,0,0.5)] sm:p-6"
             onClick={(event) => event.stopPropagation()}
+            initial={reduceMotion ? false : { opacity: 0, y: 32, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 24, scale: 0.97 }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
             <button
               type="button"
@@ -196,9 +216,10 @@ export default function ProjectsShowcase({
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       ) : null}
+      </AnimatePresence>
     </>
   );
 }

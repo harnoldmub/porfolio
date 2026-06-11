@@ -8,6 +8,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import { CountUp, Reveal, Stagger, StaggerItem, WordReveal } from "@/components/Animate";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
@@ -48,40 +49,49 @@ export default function Home() {
           <div className="px-4 pb-10 pt-12 sm:px-7 sm:pb-14 sm:pt-16">
             <section className="px-3 pb-10 sm:px-6">
               <div className="mx-auto max-w-4xl text-center">
-                <p className="inline-flex items-center gap-2 rounded-full bg-[#f1f0ec] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500 ring-1 ring-black/5">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  Portfolio personnel · CV
-                </p>
+                <Reveal>
+                  <p className="inline-flex items-center gap-2 rounded-full bg-[#f1f0ec] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500 ring-1 ring-black/5">
+                    <Sparkles className="h-3.5 w-3.5" />
+                    Portfolio personnel · CV
+                  </p>
+                </Reveal>
                 <h1 className="mt-7 font-display text-5xl font-semibold leading-[1.02] tracking-[-0.04em] text-slate-950 sm:text-7xl">
-                  Arnold Mubuanga Yate
+                  <WordReveal text="Arnold Mubuanga Yate" delay={0.15} />
                 </h1>
-                <p className="mx-auto mt-6 max-w-3xl text-lg font-medium leading-8 text-slate-500 sm:text-xl">
-                  {profile.title}
-                </p>
-                <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-500 sm:text-lg">
-                  {profile.summary}
-                </p>
+                <Reveal delay={0.3}>
+                  <p className="mx-auto mt-6 max-w-3xl text-lg font-medium leading-8 text-slate-500 sm:text-xl">
+                    {profile.title}
+                  </p>
+                </Reveal>
+                <Reveal delay={0.4}>
+                  <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-500 sm:text-lg">
+                    {profile.summary}
+                  </p>
+                </Reveal>
 
-                <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-                  <Link
-                    href="/parcours"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-                  >
-                    Voir mon CV
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <a
-                    href={`mailto:${profile.email}?subject=${encodeURIComponent("Demande de CV PDF")}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 ring-1 ring-black/8 transition hover:bg-slate-50"
-                  >
-                    Télécharger le CV
-                    <Download className="h-4 w-4" />
-                  </a>
-                </div>
+                <Reveal delay={0.5}>
+                  <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+                    <Link
+                      href="/parcours"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                    >
+                      Voir mon CV
+                      <ArrowRight className="icon-nudge h-4 w-4" />
+                    </Link>
+                    <a
+                      href={`mailto:${profile.email}?subject=${encodeURIComponent("Demande de CV PDF")}`}
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 ring-1 ring-black/8 transition hover:bg-slate-50"
+                    >
+                      Télécharger le CV
+                      <Download className="h-4 w-4" />
+                    </a>
+                  </div>
+                </Reveal>
               </div>
 
-              <div className="mt-12 grid gap-4 xl:grid-cols-12">
-                <article className="rounded-[2rem] bg-[#f7f6f2] p-7 ring-1 ring-black/6 xl:col-span-4">
+              <Stagger className="mt-12 grid gap-4 xl:grid-cols-12">
+                <StaggerItem className="xl:col-span-4">
+                <article className="card-lift h-full rounded-[2rem] bg-[#f7f6f2] p-7 ring-1 ring-black/6">
                   <p className="inline-flex rounded-full bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500 ring-1 ring-black/5">
                     À propos
                   </p>
@@ -99,8 +109,10 @@ export default function Home() {
                     </span>
                   </div>
                 </article>
+                </StaggerItem>
 
-                <article className="rounded-[2rem] bg-white p-7 ring-1 ring-black/6 xl:col-span-5">
+                <StaggerItem className="xl:col-span-5">
+                <article className="card-lift h-full rounded-[2rem] bg-white p-7 ring-1 ring-black/6">
                   <p className="inline-flex rounded-full bg-[#f3f2ee] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">
                     Aujourd&apos;hui
                   </p>
@@ -120,8 +132,10 @@ export default function Home() {
                     ))}
                   </div>
                 </article>
+                </StaggerItem>
 
-                <article className="rounded-[2rem] bg-white p-7 ring-1 ring-black/6 xl:col-span-3">
+                <StaggerItem className="xl:col-span-3">
+                <article className="card-lift h-full rounded-[2rem] bg-white p-7 ring-1 ring-black/6">
                   <p className="inline-flex rounded-full bg-[#f3f2ee] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">
                     Repères
                   </p>
@@ -132,7 +146,7 @@ export default function Home() {
                         className="rounded-[1.4rem] bg-[#f7f6f2] px-5 py-4 text-sm font-medium text-slate-700 ring-1 ring-black/5"
                       >
                         <p className="font-display text-2xl font-semibold tracking-[-0.03em] text-slate-950">
-                          {item.value}
+                          <CountUp value={item.value} />
                         </p>
                         <p className="mt-1 text-xs uppercase tracking-[0.2em] text-slate-500">
                           {item.label}
@@ -141,54 +155,58 @@ export default function Home() {
                     ))}
                   </div>
                 </article>
-              </div>
+                </StaggerItem>
+              </Stagger>
             </section>
 
             <section className="px-3 py-12 text-center sm:px-6">
-              <p className="inline-flex rounded-full bg-[#f1f0ec] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500 ring-1 ring-black/5">
-                Expertise
-              </p>
-              <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-slate-950 sm:text-5xl">
-                Une offre claire pour structurer, piloter et livrer.
-              </h2>
-              <div className="mt-12 grid gap-4 xl:grid-cols-4">
+              <Reveal>
+                <p className="inline-flex rounded-full bg-[#f1f0ec] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500 ring-1 ring-black/5">
+                  Expertise
+                </p>
+                <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-slate-950 sm:text-5xl">
+                  Une offre claire pour structurer, piloter et livrer.
+                </h2>
+              </Reveal>
+              <Stagger className="mt-12 grid gap-4 xl:grid-cols-4">
                 {services.map((service) => (
-                  <article
-                    key={service.title}
-                    className="rounded-[2rem] bg-white p-7 text-left ring-1 ring-black/6"
-                  >
-                    <div className="inline-flex rounded-full bg-[#f3f2ee] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-500">
-                      {service.title}
-                    </div>
-                    <p className="mt-6 text-base leading-8 text-slate-600">{service.description}</p>
-                  </article>
+                  <StaggerItem key={service.title}>
+                    <article className="card-lift h-full rounded-[2rem] bg-white p-7 text-left ring-1 ring-black/6">
+                      <div className="inline-flex rounded-full bg-[#f3f2ee] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-500">
+                        {service.title}
+                      </div>
+                      <p className="mt-6 text-base leading-8 text-slate-600">{service.description}</p>
+                    </article>
+                  </StaggerItem>
                 ))}
-              </div>
+              </Stagger>
             </section>
 
             <section className="px-3 py-12 sm:px-6" id="projets">
-              <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-                <div className="max-w-3xl">
-                  <p className="inline-flex rounded-full bg-[#f1f0ec] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500 ring-1 ring-black/5">
-                    Projets sélectionnés
-                  </p>
-                  <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-slate-950 sm:text-5xl">
-                    Quelques réalisations qui prolongent mon parcours.
-                  </h2>
-                  <p className="mt-5 max-w-2xl text-base leading-8 text-slate-500">
-                    Sites vitrines, plateformes et applications conçus pour des usages réels et des
-                    environnements exigeants.
-                  </p>
-                </div>
+              <Reveal>
+                <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                  <div className="max-w-3xl">
+                    <p className="inline-flex rounded-full bg-[#f1f0ec] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500 ring-1 ring-black/5">
+                      Projets sélectionnés
+                    </p>
+                    <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-slate-950 sm:text-5xl">
+                      Quelques réalisations qui prolongent mon parcours.
+                    </h2>
+                    <p className="mt-5 max-w-2xl text-base leading-8 text-slate-500">
+                      Sites vitrines, plateformes et applications conçus pour des usages réels et des
+                      environnements exigeants.
+                    </p>
+                  </div>
 
-                <Link
-                  href="/projets"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 ring-1 ring-black/8 transition hover:bg-slate-50"
-                >
-                  Voir tous les projets
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
+                  <Link
+                    href="/projets"
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 ring-1 ring-black/8 transition hover:bg-slate-50"
+                  >
+                    Voir tous les projets
+                    <ArrowRight className="icon-nudge h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
 
               <div className="mt-10">
                 <ProjectsShowcase projects={featuredProjects} compact />
@@ -196,32 +214,33 @@ export default function Home() {
             </section>
 
             <section className="px-3 pb-4 pt-12 sm:px-6">
-              <div className="grid gap-4 xl:grid-cols-12">
-                <article className="rounded-[2rem] bg-[#f7f6f2] p-7 ring-1 ring-black/6 xl:col-span-5">
-                  <p className="inline-flex rounded-full bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500 ring-1 ring-black/5">
-                    Références
-                  </p>
-                  <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-slate-950">
-                    Secteur public, grands groupes et projets à forte visibilité.
-                  </h2>
-                  <p className="mt-6 text-base leading-8 text-slate-600">
-                    Un parcours construit dans des contextes où la structure, la fiabilité et la
-                    clarté d&apos;exécution comptent réellement.
-                  </p>
-                </article>
+              <Stagger className="grid gap-4 xl:grid-cols-12">
+                <StaggerItem className="xl:col-span-5">
+                  <article className="card-lift h-full rounded-[2rem] bg-[#f7f6f2] p-7 ring-1 ring-black/6">
+                    <p className="inline-flex rounded-full bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500 ring-1 ring-black/5">
+                      Références
+                    </p>
+                    <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-slate-950">
+                      Secteur public, grands groupes et projets à forte visibilité.
+                    </h2>
+                    <p className="mt-6 text-base leading-8 text-slate-600">
+                      Un parcours construit dans des contextes où la structure, la fiabilité et la
+                      clarté d&apos;exécution comptent réellement.
+                    </p>
+                  </article>
+                </StaggerItem>
 
                 {trustedCompanies.slice(0, 3).map((item) => (
-                  <article
-                    key={item}
-                    className="rounded-[2rem] bg-white p-7 ring-1 ring-black/6 xl:col-span-7"
-                  >
-                    <div className="flex items-start gap-4">
-                      <BriefcaseBusiness className="mt-1 h-5 w-5 shrink-0 text-slate-500" />
-                      <p className="text-base leading-8 text-slate-600">{item}</p>
-                    </div>
-                  </article>
+                  <StaggerItem key={item} className="xl:col-span-7">
+                    <article className="card-lift h-full rounded-[2rem] bg-white p-7 ring-1 ring-black/6">
+                      <div className="flex items-start gap-4">
+                        <BriefcaseBusiness className="mt-1 h-5 w-5 shrink-0 text-slate-500" />
+                        <p className="text-base leading-8 text-slate-600">{item}</p>
+                      </div>
+                    </article>
+                  </StaggerItem>
                 ))}
-              </div>
+              </Stagger>
             </section>
           </div>
         </div>
