@@ -1,11 +1,13 @@
 export const profile = {
   name: "Arnold Mubuanga Yate",
   shortName: "AMY",
-  title: "Ingénieur développement · Chef de projet informatique · Entrepreneur digital",
+  title: "Software Engineer & Digital Product Builder",
   headline: "Applications métier, plateformes web et produits digitaux à forte valeur d'usage.",
   availability: "Disponible pour échanges et collaborations",
   location: "Basé entre la France et la Belgique",
   email: "arnold@mubuanga.com",
+  phone: "+33698827193",
+  instagram: "harnold_mub",
   linkedin: "https://www.linkedin.com/in/arnold-mubuanga-yate-149b7b151",
   github: "#",
   summary:

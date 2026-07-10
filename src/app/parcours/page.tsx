@@ -14,6 +14,7 @@ import { CountUp, Reveal, Stagger, StaggerItem, WordReveal } from "@/components/
 import {
   aboutParagraphs,
   cvMetrics,
+  dassaultMission,
   education,
   entrepreneurialProjects,
   experiences,
@@ -24,6 +25,7 @@ import {
   visionParagraphs,
 } from "@/data/profile";
 import { buildPageMetadata } from "@/lib/seo";
+import SiteHeader from "@/components/SiteHeader";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Parcours | CV d'AMY",
@@ -32,17 +34,9 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/parcours",
 });
 
-const cvNavItems = [
-  { label: "À propos", href: "#about" },
-  { label: "Expertise", href: "#expertise" },
-  { label: "Expériences", href: "#experience" },
-  { label: "Projets", href: "#ventures" },
-  { label: "Contact", href: "#contact" },
-];
-
 export default function ParcoursPage() {
   return (
-    <main className="min-h-screen bg-[#f2f1ed] px-3 py-3 text-slate-950 sm:px-5 sm:py-5">
+    <main className="site-canvas min-h-screen text-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -56,62 +50,33 @@ export default function ParcoursPage() {
         }}
       />
 
-      <div className="mx-auto max-w-[1420px] rounded-[2.4rem] border border-black/8 bg-[linear-gradient(180deg,#ffffff_0%,#f6f5f1_100%)] shadow-[0_30px_120px_rgba(15,23,42,0.06)] sm:rounded-[3rem]">
-        <div className="px-4 pb-8 pt-4 sm:px-7 sm:pb-14 sm:pt-6">
-          <div className="rounded-[1.8rem] border border-black/6 bg-white/80 px-4 py-3 shadow-[0_10px_40px_rgba(15,23,42,0.04)] backdrop-blur sm:px-6">
-            <div className="flex items-center justify-between gap-4">
-              <Link
-                href="/"
-                className="inline-flex items-center rounded-full bg-[#f3f2ee] px-4 py-2 font-display text-lg font-semibold uppercase tracking-[0.14em] text-slate-950 ring-1 ring-black/5"
-              >
-                {profile.shortName}
-              </Link>
-
-              <nav className="hidden items-center gap-1 rounded-full bg-[#f6f5f1] p-1 ring-1 ring-black/5 lg:flex">
-                {cvNavItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-full px-4 py-2 text-sm font-medium text-slate-500 transition hover:bg-white hover:text-slate-950"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-
-              <a
-                href={`mailto:${profile.email}`}
-                className="inline-flex items-center rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
-              >
-                Me contacter
-              </a>
-            </div>
-          </div>
-
-          <section className="px-3 pb-8 pt-12 sm:px-6 sm:pb-14 sm:pt-16">
-            <div className="mx-auto max-w-4xl text-center">
+      <SiteHeader />
+      <div className="mx-auto max-w-[1440px] border-x border-black/8 bg-[#f7f8f5]">
+        <div className="px-4 pb-8 pt-28 sm:px-7 sm:pb-14 sm:pt-32">
+          <section className="px-3 pb-12 sm:px-6 sm:pb-14">
+            <div className="max-w-5xl">
               <Reveal>
-                <p className="inline-flex items-center gap-2 rounded-full bg-[#f1f0ec] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500 ring-1 ring-black/5">
+                <p className="eyebrow">
                   <Sparkles className="h-3.5 w-3.5" />
                   CV · profil · parcours
                 </p>
               </Reveal>
-              <h1 className="mt-7 font-display text-5xl font-semibold leading-[1.02] tracking-[-0.04em] text-slate-950 sm:text-7xl">
+              <h1 className="mt-7 max-w-5xl font-display text-5xl font-medium leading-[0.98] tracking-[-0.06em] text-slate-950 sm:text-7xl">
                 <WordReveal text="Arnold Mubuanga Yate" delay={0.15} />
               </h1>
               <Reveal delay={0.3}>
-                <p className="mx-auto mt-5 max-w-3xl text-lg font-medium leading-8 text-slate-500 sm:text-xl">
+                <p className="mt-7 max-w-2xl text-lg leading-8 text-black/60 sm:text-xl">
                   {profile.title}
                 </p>
               </Reveal>
               <Reveal delay={0.4}>
-                <p className="mx-auto mt-7 max-w-3xl text-base leading-8 text-slate-500 sm:text-lg">
+                <p className="mt-5 max-w-2xl text-base leading-8 text-black/55 sm:text-lg">
                   {profile.summary}
                 </p>
               </Reveal>
 
               <Reveal delay={0.5}>
-                <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
+                <div className="mt-9 flex flex-col items-start gap-4 sm:flex-row">
                   <a
                     href={`mailto:${profile.email}?subject=${encodeURIComponent("Demande de CV PDF")}`}
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
@@ -131,7 +96,7 @@ export default function ParcoursPage() {
             </div>
 
             <Reveal delay={0.6}>
-              <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+              <div className="mt-12 flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm text-slate-600 ring-1 ring-black/6">
                   <MapPin className="h-4 w-4" />
                   {profile.location}
@@ -188,16 +153,23 @@ export default function ParcoursPage() {
                 <p className="mt-2 text-sm font-medium text-slate-500">{experiences[0].role}</p>
                 <p className="mt-1 text-sm text-slate-400">{experiences[0].period}</p>
                 <p className="mt-6 text-base leading-8 text-slate-600">{experiences[0].summary}</p>
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {experiences[0].details.map((detail) => (
-                    <div
-                      key={detail}
-                      className="rounded-[1.4rem] bg-[#f7f6f2] px-4 py-4 text-sm leading-7 text-slate-600 ring-1 ring-black/5"
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {experiences[0].stack.slice(0, 4).map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full bg-[#f7f6f2] px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-black/5"
                     >
-                      {detail}
-                    </div>
+                      {item}
+                    </span>
                   ))}
                 </div>
+                <a
+                  href="#experience"
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-500 transition hover:text-slate-950"
+                >
+                  Voir le détail de la mission
+                  <ArrowRight className="icon-nudge h-4 w-4" />
+                </a>
               </article>
               </StaggerItem>
 
@@ -224,17 +196,20 @@ export default function ParcoursPage() {
                 <p className="inline-flex rounded-full bg-[#f3f2ee] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-500">
                   Référence phare
                 </p>
-                <h3 className="mt-6 font-display text-4xl font-semibold tracking-[-0.03em] text-slate-950">{experiences[1].company}</h3>
-                <p className="mt-2 text-sm font-medium text-slate-500">{experiences[1].role}</p>
-                <p className="mt-1 text-sm text-slate-400">{experiences[1].period}</p>
-                <p className="mt-6 text-base leading-8 text-slate-600">{experiences[1].summary}</p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {experiences[1].stack.map((item) => (
+                <h3 className="mt-6 font-display text-4xl font-semibold tracking-[-0.03em] text-slate-950">{dassaultMission.company}</h3>
+                <p className="mt-2 text-sm font-medium text-slate-500">{dassaultMission.team}</p>
+                <p className="mt-1 text-sm text-slate-400">{dassaultMission.period}</p>
+                <p className="mt-6 text-base leading-8 text-slate-600">{dassaultMission.context}</p>
+                <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
+                  Écosystème 3DEXPERIENCE
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {dassaultMission.brands.map((brand) => (
                     <span
-                      key={item}
+                      key={brand}
                       className="rounded-full bg-[#f7f6f2] px-4 py-2 text-sm font-medium text-slate-700 ring-1 ring-black/5"
                     >
-                      {item}
+                      {brand}
                     </span>
                   ))}
                 </div>

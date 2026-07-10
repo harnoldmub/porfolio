@@ -29,14 +29,14 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-[2.2rem] bg-white p-8 shadow-xl shadow-slate-950/5 ring-1 ring-[#e4d5be] sm:p-10">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-[2.2rem] bg-white p-8 shadow-xl shadow-slate-950/5 ring-1 ring-black/8 sm:p-10">
       <div className="grid gap-5 md:grid-cols-2">
         <label className="space-y-2">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Nom</span>
           <input
             value={name}
             onChange={(event) => setName(event.target.value)}
-            className="w-full rounded-2xl border border-[#e4d5be] bg-[#fffaf4] px-4 py-3.5 text-slate-900 outline-none transition focus:border-[#c7a56a] focus:bg-white focus:ring-2 focus:ring-[#c7a56a]/20"
+            className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-slate-900 outline-none transition focus:border-[#356dff] focus:bg-white focus:ring-2 focus:ring-[#356dff]/20"
             placeholder="Votre nom"
           />
         </label>
@@ -47,7 +47,7 @@ export default function ContactForm() {
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            className="w-full rounded-2xl border border-[#e4d5be] bg-[#fffaf4] px-4 py-3.5 text-slate-900 outline-none transition focus:border-[#c7a56a] focus:bg-white focus:ring-2 focus:ring-[#c7a56a]/20"
+            className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-slate-900 outline-none transition focus:border-[#356dff] focus:bg-white focus:ring-2 focus:ring-[#356dff]/20"
             placeholder="vous@entreprise.com"
           />
         </label>
@@ -58,7 +58,7 @@ export default function ContactForm() {
         <input
           value={subject}
           onChange={(event) => setSubject(event.target.value)}
-          className="w-full rounded-2xl border border-[#e4d5be] bg-[#fffaf4] px-4 py-3.5 text-slate-900 outline-none transition focus:border-[#c7a56a] focus:bg-white focus:ring-2 focus:ring-[#c7a56a]/20"
+          className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3.5 text-slate-900 outline-none transition focus:border-[#356dff] focus:bg-white focus:ring-2 focus:ring-[#356dff]/20"
           placeholder="Mission, échange, collaboration..."
         />
       </label>
@@ -69,7 +69,7 @@ export default function ContactForm() {
           rows={6}
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-          className="w-full rounded-3xl border border-[#e4d5be] bg-[#fffaf4] px-4 py-3.5 text-slate-900 outline-none transition focus:border-[#c7a56a] focus:bg-white focus:ring-2 focus:ring-[#c7a56a]/20"
+          className="w-full rounded-3xl border border-black/10 bg-white px-4 py-3.5 text-slate-900 outline-none transition focus:border-[#356dff] focus:bg-white focus:ring-2 focus:ring-[#356dff]/20"
           placeholder="Décrivez votre contexte, votre équipe ou le besoin à couvrir."
         />
       </label>
@@ -80,7 +80,7 @@ export default function ContactForm() {
         </p>
         <button
           type="submit"
-          className="cta-gold inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
+          className="cta-blue inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
         >
           Préparer l&apos;email
           <Send className="h-4 w-4" />

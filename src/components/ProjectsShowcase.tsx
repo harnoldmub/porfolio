@@ -63,8 +63,8 @@ export default function ProjectsShowcase({
               onClick={() => setActive(category)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition ${
                 active === category
-                  ? "bg-[#c7a56a] text-[#0d1117] shadow-[0_4px_16px_rgba(199,165,106,0.3)]"
-                  : "bg-white text-slate-600 ring-1 ring-slate-200 hover:ring-[#c7a56a] hover:text-[#9f7a3f]"
+                  ? "bg-[#356dff] text-white shadow-[0_4px_16px_rgba(53,109,255,0.28)]"
+                  : "bg-white text-slate-600 ring-1 ring-slate-200 hover:ring-[#356dff] hover:text-[#356dff]"
               }`}
             >
               {category}
@@ -91,7 +91,7 @@ export default function ProjectsShowcase({
               delay: (index % 3) * 0.1,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="project-card group overflow-hidden rounded-[2rem] bg-[#fffdf9] text-left shadow-lg shadow-slate-950/5 ring-1 ring-[#e7dbc8] transition hover:shadow-2xl"
+            className="project-card group flex flex-col overflow-hidden rounded-[2rem] bg-white text-left shadow-lg shadow-slate-950/5 ring-1 ring-black/8 transition hover:shadow-2xl hover:ring-[#356dff]"
           >
             <div className={`${compact ? "h-64" : "h-52"} relative overflow-hidden bg-slate-100`}>
               <Image
@@ -119,14 +119,15 @@ export default function ProjectsShowcase({
               <span className="absolute left-3 top-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 backdrop-blur">
                 {project.category}
               </span>
+
+              <span className="absolute right-3 top-3 inline-flex h-9 w-9 -translate-y-1 items-center justify-center rounded-full bg-white/95 text-slate-900 opacity-0 shadow-[0_8px_24px_rgba(0,0,0,0.25)] backdrop-blur transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <ArrowUpRight className="h-4 w-4" />
+              </span>
             </div>
 
-            <div className="p-6">
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="font-display text-2xl text-slate-950">{project.name}</h3>
-                <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition group-hover:text-accent" />
-              </div>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{project.description}</p>
+            <div className="flex flex-1 flex-col p-6">
+              <h3 className="font-display text-2xl text-slate-950">{project.name}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600 line-clamp-2">{project.description}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
@@ -137,9 +138,14 @@ export default function ProjectsShowcase({
                   </span>
                 ))}
               </div>
-              <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-[#9f7a3f]">
-                Ouvrir l&apos;affiche
-                <ArrowRight className="icon-nudge h-4 w-4" />
+              <div className="mt-auto flex items-center justify-between gap-3 pt-5">
+                <span className="truncate text-xs font-medium text-slate-400">
+                  {project.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                </span>
+                <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#0d1117] px-4 py-2 text-xs font-semibold text-white transition duration-300 group-hover:bg-[#356dff] group-hover:text-white">
+                  Ouvrir l&apos;affiche
+                  <ArrowRight className="icon-nudge h-3.5 w-3.5" />
+                </span>
               </div>
             </div>
           </motion.button>
@@ -167,20 +173,11 @@ export default function ProjectsShowcase({
             exit={{ opacity: 0, y: 24, scale: 0.97 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
-            <button
-              type="button"
-              onClick={() => setSelectedProject(null)}
-              className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white/90 text-slate-700 transition hover:bg-white"
-              aria-label="Fermer la popup projet"
-            >
-              <X className="h-5 w-5" />
-            </button>
-
             <div className="grid gap-6 lg:grid-cols-[1.12fr_0.88fr]">
               <ProjectPosterArtwork project={selectedProject} priority />
 
               <div className="rounded-[2rem] bg-white p-7 shadow-lg shadow-slate-950/5 ring-1 ring-[#eadfce]">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#9f7a3f]">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#356dff]">
                   Popup projet
                 </p>
                 <h3
@@ -201,7 +198,7 @@ export default function ProjectsShowcase({
                     href={selectedProject.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="gold-shimmer inline-flex items-center justify-center gap-2 rounded-full bg-[#c7a56a] px-5 py-3 text-sm font-semibold text-[#0d1117] transition hover:bg-[#d3b47f]"
+                    className="blue-shimmer inline-flex items-center justify-center gap-2 rounded-full bg-[#356dff] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#234ed0]"
                   >
                     Visiter le site
                     <ExternalLink className="h-4 w-4" />
@@ -209,7 +206,7 @@ export default function ProjectsShowcase({
                   <button
                     type="button"
                     onClick={() => setSelectedProject(null)}
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#dcc6a4] bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-[#c7a56a]"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-[#356dff]"
                   >
                     Fermer
                   </button>
@@ -217,6 +214,20 @@ export default function ProjectsShowcase({
               </div>
             </div>
           </motion.div>
+
+          <motion.button
+            type="button"
+            onClick={() => setSelectedProject(null)}
+            className="absolute right-4 top-4 z-10 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-[0_12px_36px_rgba(0,0,0,0.35)] backdrop-blur transition hover:bg-white sm:right-6 sm:top-6"
+            aria-label="Fermer la popup projet"
+            initial={reduceMotion ? false : { opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, delay: 0.15 }}
+          >
+            Fermer
+            <X className="h-4 w-4" />
+          </motion.button>
         </motion.div>
       ) : null}
       </AnimatePresence>

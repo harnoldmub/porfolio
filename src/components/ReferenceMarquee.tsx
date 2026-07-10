@@ -21,7 +21,7 @@ export default function ReferenceMarquee() {
           {items.map((company, index) => (
             <div
               key={`${company}-${index}`}
-              className="rounded-full border border-white/12 bg-white/[0.04] px-6 py-4 text-sm font-semibold text-[#f6efe2] shadow-[0_10px_30px_rgba(0,0,0,0.14)] transition hover:border-[#c7a56a] hover:bg-white/[0.08]"
+              className="rounded-full border border-white/12 bg-white/[0.04] px-6 py-4 text-sm font-semibold text-[#f6efe2] shadow-[0_10px_30px_rgba(0,0,0,0.14)] transition hover:border-[#356dff] hover:bg-white/[0.08]"
             >
               {company}
             </div>

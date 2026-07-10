@@ -14,7 +14,7 @@ const config: Config = {
                     900: "#151821",
                     800: "#1f2430",
                 },
-                accent: "#c7a56a",
+                accent: "#356dff",
                 "off-white": "#f7f1e8",
                 navy: "#0d1117",
             },

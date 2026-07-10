@@ -7,8 +7,8 @@ html {
 }
 
 :root {
-  --background: #f7f1e8;
-  --foreground: #16110b;
+  --background: #f7f8f5;
+  --foreground: #111111;
 }
 
 body {
@@ -22,10 +22,69 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 18% 12%, rgba(255, 235, 190, 0.14), transparent 22%),
-    radial-gradient(circle at 82% 10%, rgba(199, 165, 106, 0.12), transparent 18%);
+  background: linear-gradient(120deg, rgba(224, 234, 229, 0.14), transparent 34%);
   z-index: 0;
+}
+
+.site-canvas {
+  background: #f7f8f5;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(17, 17, 17, 0.52);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.eyebrow.text-white\/55 {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.status-dot {
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: #356dff;
+  box-shadow: 0 0 0 5px rgba(53, 109, 255, 0.12);
+}
+
+.portrait-frame {
+  box-shadow: 16px 22px 0 #dce7e3;
+}
+
+.magnetic-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.magnetic-button::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.2) 50%, transparent 75%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+
+.magnetic-button:hover::after {
+  transform: translateX(120%);
+}
+
+@keyframes slow-drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-35px, 24px, 0) scale(1.12); }
+}
+
+@keyframes line-breathe {
+  0%, 100% { width: 4rem; opacity: 0.55; }
+  50% { width: 8rem; opacity: 1; }
 }
 
 ::selection {
@@ -286,12 +345,12 @@ body::before {
   animation: luxury-float 6.5s ease-in-out infinite;
 }
 
-.gold-shimmer {
+.blue-shimmer {
   position: relative;
   overflow: hidden;
 }
 
-.gold-shimmer::after {
+.blue-shimmer::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -613,22 +672,22 @@ details > summary::-webkit-details-marker {
   transform: translateY(0);
 }
 
-.cta-gold {
+.cta-blue {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #f8efd6 0%, #dbc089 100%);
-  color: #0d1117;
-  border: 1px solid rgba(230, 201, 141, 0.35);
-  box-shadow: 0 10px 32px rgba(199, 165, 106, 0.22);
+  background: #356dff;
+  color: white;
+  border: 1px solid rgba(53, 109, 255, 0.35);
+  box-shadow: 0 10px 32px rgba(53, 109, 255, 0.22);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.cta-gold:hover {
+.cta-blue:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 48px rgba(199, 165, 106, 0.3);
+  box-shadow: 0 16px 48px rgba(53, 109, 255, 0.3);
 }
 
-.cta-gold::after {
+.cta-blue::after {
   content: "";
   position: absolute;
   inset: 0;

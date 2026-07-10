@@ -21,6 +21,11 @@ const fontDisplay = Sora({
 export const metadata: Metadata = {
   metadataBase,
   applicationName: siteName,
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   title: {
     default: "AMY | CV, portfolio et projets digitaux",
     template: "%s | AMY",
