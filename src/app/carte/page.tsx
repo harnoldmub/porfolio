@@ -23,14 +23,14 @@ export default function BusinessCardPage() {
     <main className="min-h-screen bg-[#eef0ea] px-3 py-4 text-slate-950 sm:px-6 sm:py-8">
       <section className="mx-auto flex min-h-[calc(100svh-2rem)] w-full max-w-[440px] items-center">
         <div className="w-full overflow-hidden rounded-[22px] bg-white shadow-[0_28px_90px_rgba(15,23,42,0.14)] ring-1 ring-[#356dff]/60">
-          <div className="relative aspect-[4/5] max-h-[580px] bg-slate-200">
+          <div className="relative aspect-[4/5] max-h-[580px] bg-[#dfe6ff]">
             <Image
-              src="/profile-portrait-card.png"
+              src="/arnold-website.png"
               alt="Portrait d'Arnold Mubuanga Yate"
               fill
               priority
               sizes="(min-width: 640px) 448px, calc(100vw - 32px)"
-              className="object-cover"
+              className="object-contain object-bottom"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/55 to-transparent px-5 pb-5 pt-28 sm:px-7 sm:pb-7">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/70">AMY</p>

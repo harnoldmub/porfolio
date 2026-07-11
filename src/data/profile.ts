@@ -111,6 +111,20 @@ export const services = [
   },
 ] as const;
 
+export const techStack = [
+  { name: "Angular", icon: "/icons/angular.svg" },
+  { name: "React", icon: "/icons/react.svg" },
+  { name: "Next.js", icon: "/icons/nextdotjs.svg" },
+  { name: "TypeScript", icon: "/icons/typescript.svg" },
+  { name: "JavaScript", icon: "/icons/javascript.svg" },
+  { name: "HTML5", icon: "/icons/html5.svg" },
+  { name: "CSS3 / SCSS", icon: "/icons/css3.svg" },
+  { name: "Symfony", icon: "/icons/symfony.svg" },
+  { name: "Node.js", icon: "/icons/nodedotjs.svg" },
+  { name: "NestJS", icon: "/icons/nestjs.svg" },
+  { name: "PHP", icon: "/icons/php.svg" },
+] as const;
+
 export const projects = [
   {
     slug: "salon-congo-paris",
@@ -170,7 +184,7 @@ export const projects = [
     description:
       "Plateforme dédiée aux supporters de l'équipe nationale de football de la RDC, Les Léopards.",
     tags: ["Next.js", "Sport", "Communauté"],
-    featured: false,
+    featured: true,
   },
   {
     slug: "momento-wedding",
@@ -182,6 +196,42 @@ export const projects = [
     description:
       "Agence événementielle spécialisée en mariages — vitrine premium avec galerie et demandes de contact.",
     tags: ["Next.js", "Design", "Événementiel"],
+    featured: true,
+  },
+  {
+    slug: "mami-samarylin-2026",
+    name: "Mami & Samarylin 2026",
+    url: "https://mamisamarylin2026.com",
+    screenshot: "/screenshots/mami_samarylin_2026.png",
+    screenshotMobile: "/screenshots/momento_wedding_mobile.png",
+    category: "Mariage",
+    description:
+      "Site événementiel privé pensé pour partager les informations, les temps forts et l'expérience d'un mariage.",
+    tags: ["Next.js", "Événement", "Expérience digitale"],
+    featured: true,
+  },
+  {
+    slug: "kecha-2026",
+    name: "Kecha 2026",
+    url: "https://kecha2026.com",
+    screenshot: "/screenshots/kecha_2026.png",
+    screenshotMobile: "/screenshots/momento_wedding_mobile.png",
+    category: "Mariage",
+    description:
+      "Expérience web sur mesure pour un mariage, avec une direction artistique élégante et un accès privé.",
+    tags: ["React", "Design", "Événement"],
+    featured: true,
+  },
+  {
+    slug: "daylora",
+    name: "Daylora",
+    url: "https://daylora.co/",
+    screenshot: "/screenshots/daylora_co.png",
+    screenshotMobile: "/screenshots/momento_wedding_mobile.png",
+    category: "Mariage",
+    description:
+      "Vitrine digitale dédiée à l'univers du mariage, avec une atmosphère éditoriale et une présentation premium.",
+    tags: ["Next.js", "Direction artistique", "Mariage"],
     featured: true,
   },
   {
