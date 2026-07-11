@@ -203,7 +203,7 @@ export const projects = [
     name: "Mami & Samarylin 2026",
     url: "https://mamisamarylin2026.com",
     screenshot: "/screenshots/mami_samarylin_2026.png",
-    screenshotMobile: "/screenshots/momento_wedding_mobile.png",
+    screenshotMobile: "/screenshots/mami_samarylin_2026_mobile.png",
     category: "Mariage",
     description:
       "Site événementiel privé pensé pour partager les informations, les temps forts et l'expérience d'un mariage.",
@@ -215,7 +215,7 @@ export const projects = [
     name: "Kecha 2026",
     url: "https://kecha2026.com",
     screenshot: "/screenshots/kecha_2026.png",
-    screenshotMobile: "/screenshots/momento_wedding_mobile.png",
+    screenshotMobile: "/screenshots/kecha_2026_mobile.png",
     category: "Mariage",
     description:
       "Expérience web sur mesure pour un mariage, avec une direction artistique élégante et un accès privé.",
@@ -227,7 +227,7 @@ export const projects = [
     name: "Daylora",
     url: "https://daylora.co/",
     screenshot: "/screenshots/daylora_co.png",
-    screenshotMobile: "/screenshots/momento_wedding_mobile.png",
+    screenshotMobile: "/screenshots/daylora_co_mobile.png",
     category: "Mariage",
     description:
       "Vitrine digitale dédiée à l'univers du mariage, avec une atmosphère éditoriale et une présentation premium.",

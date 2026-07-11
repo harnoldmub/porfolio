@@ -46,21 +46,6 @@ export default function Home() {
               <p className="mt-8 max-w-lg text-base leading-8 text-black/62 sm:text-lg">
                 Je conçois et construis des plateformes web, des expériences digitales et des outils métier utiles, de l&apos;idée à la mise en ligne.
               </p>
-              <div className="mt-9 flex flex-wrap items-center gap-4">
-                <Link href="#projets" className="magnetic-button inline-flex items-center gap-3 bg-[#356dff] px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#234ed0]">
-                  Voir mes projets <ArrowUpRight className="h-4 w-4" />
-                </Link>
-                <Link href="/carte" className="inline-flex items-center gap-2 text-sm font-semibold text-black/68 transition hover:text-[#356dff]">
-                  Ma carte de visite <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              </div>
-              <div className="mt-12 grid max-w-lg grid-cols-2 gap-x-6 gap-y-3 border-t border-black/12 pt-5 text-sm text-black/62 sm:grid-cols-3">
-                <span>Software Engineer</span>
-                <span>Product Builder</span>
-                <span>Entrepreneur</span>
-                <span>Designer</span>
-                <span>Digital Strategist</span>
-              </div>
             </div>
           </Reveal>
           <Reveal delay={0.12} className="relative flex min-h-[360px] items-end justify-center self-stretch lg:min-h-0">
