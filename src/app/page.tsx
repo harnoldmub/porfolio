@@ -12,12 +12,15 @@ import { projects, services, cvMetrics } from "@/data/profile";
 import { buildPageMetadata } from "@/lib/seo";
 
 const spotlightSlugs = [
+  "salon-congo-paris",
   "bloc-leopards",
-  "mami-samarylin-2026",
-  "kecha-2026",
-  "daylora",
   "mboka-hub",
   "e-visa",
+  "tselem-rdc",
+  "momento-wedding",
+  "awa-network",
+  "cozy-interieur",
+  "u-moja",
 ];
 const featuredProjects = spotlightSlugs
   .map((slug) => projects.find((project) => project.slug === slug))
@@ -86,18 +89,6 @@ export default function Home() {
         <ProjectsShowcase projects={featuredProjects} compact />
       </section>
 
-      <section className="border-y border-black/10 bg-[#f0f3ef]">
-        <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
-          <Reveal>
-            <div className="flex flex-col gap-6 border-b border-black/10 pb-8 sm:flex-row sm:items-end sm:justify-between">
-              <div><p className="eyebrow">Mariages &amp; événements</p><h2 className="mt-5 max-w-3xl font-display text-4xl font-medium tracking-[-0.05em] sm:text-6xl">Des expériences à partager.</h2></div>
-              <p className="max-w-sm text-sm leading-7 text-black/58">Des sites privés et publics conçus pour informer, rassembler et donner le ton avant le grand jour.</p>
-            </div>
-          </Reveal>
-          <ProjectsShowcase projects={weddingProjects} compact />
-        </div>
-      </section>
-
       <section className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
         <div className="grid gap-10 lg:grid-cols-[0.55fr_1fr]">
           <Reveal><p className="eyebrow">Technologies</p></Reveal>
@@ -116,6 +107,18 @@ export default function Home() {
           <Stagger className="grid gap-x-8 gap-y-10 sm:grid-cols-2">
             {services.map((service, index) => <StaggerItem key={service.title}><article className="border-t border-white/20 pt-5"><span className="text-sm text-white/40">0{index + 1}</span><h3 className="mt-7 font-display text-2xl font-medium tracking-[-0.03em]">{service.title}</h3><p className="mt-4 max-w-sm text-sm leading-7 text-white/58">{service.description}</p></article></StaggerItem>)}
           </Stagger>
+        </div>
+      </section>
+
+      <section className="border-y border-black/10 bg-[#f0f3ef]">
+        <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
+          <Reveal>
+            <div className="flex flex-col gap-6 border-b border-black/10 pb-8 sm:flex-row sm:items-end sm:justify-between">
+              <div><p className="eyebrow">Projets mariage</p><h2 className="mt-5 max-w-3xl font-display text-4xl font-medium tracking-[-0.05em] sm:text-6xl">Des sites pensés pour le grand jour.</h2></div>
+              <p className="max-w-sm text-sm leading-7 text-black/58">Des expériences privées et publiques conçues pour informer, rassembler et donner le ton avant la célébration.</p>
+            </div>
+          </Reveal>
+          <ProjectsShowcase projects={weddingProjects} compact />
         </div>
       </section>
 

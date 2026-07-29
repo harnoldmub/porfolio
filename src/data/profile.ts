@@ -199,18 +199,6 @@ export const projects = [
     featured: true,
   },
   {
-    slug: "mami-samarylin-2026",
-    name: "Mami & Samarylin 2026",
-    url: "https://mamisamarylin2026.com",
-    screenshot: "/screenshots/mami_samarylin_2026.png",
-    screenshotMobile: "/screenshots/mami_samarylin_2026_mobile.png",
-    category: "Mariage",
-    description:
-      "Site événementiel privé pensé pour partager les informations, les temps forts et l'expérience d'un mariage.",
-    tags: ["Next.js", "Événement", "Expérience digitale"],
-    featured: true,
-  },
-  {
     slug: "kecha-2026",
     name: "Kecha 2026",
     url: "https://kecha2026.com",
@@ -220,6 +208,18 @@ export const projects = [
     description:
       "Expérience web sur mesure pour un mariage, avec une direction artistique élégante et un accès privé.",
     tags: ["React", "Design", "Événement"],
+    featured: true,
+  },
+  {
+    slug: "mami-samarylin-2026",
+    name: "Mami & Samarylin 2026",
+    url: "https://mamisamarylin2026.com",
+    screenshot: "/screenshots/mami_samarylin_2026.png",
+    screenshotMobile: "/screenshots/mami_samarylin_2026_mobile.png",
+    category: "Mariage",
+    description:
+      "Site événementiel privé pensé pour partager les informations, les temps forts et l'expérience d'un mariage.",
+    tags: ["Next.js", "Événement", "Expérience digitale"],
     featured: true,
   },
   {
@@ -292,6 +292,42 @@ export const projects = [
     description:
       "Plateforme e-commerce et lifestyle pour une marque africaine contemporaine — catalogue et expérience d'achat.",
     tags: ["Next.js", "E-commerce", "Lifestyle"],
+    featured: false,
+  },
+  {
+    slug: "awa-network",
+    name: "AWA Network",
+    url: "http://awanetwork.com/",
+    screenshot: "/screenshots/awanetwork_com.png",
+    screenshotMobile: "/screenshots/awanetwork_com_mobile.png",
+    category: "Plateforme",
+    description:
+      "Plateforme de paiement qui connecte les entreprises aux principaux réseaux de mobile money en RDC.",
+    tags: ["Next.js", "Paiement", "API"],
+    featured: false,
+  },
+  {
+    slug: "mboka-mubuanga",
+    name: "Mboka",
+    url: "https://mboka.mubuanga.com/",
+    screenshot: "/screenshots/mbokahub_com.png",
+    screenshotMobile: "/screenshots/mbokahub_com_mobile.png",
+    category: "Plateforme",
+    description:
+      "Projet digital Mboka, dédié à la création d'une expérience communautaire et utile pour la diaspora.",
+    tags: ["React", "Plateforme", "Communauté"],
+    featured: false,
+  },
+  {
+    slug: "docu243",
+    name: "Docu243",
+    url: "https://docu243.mubuanga.com/",
+    screenshot: "/screenshots/dgm_mubuanga_com.png",
+    screenshotMobile: "/screenshots/dgm_mubuanga_com_mobile.png",
+    category: "Application",
+    description:
+      "Application documentaire et digitale dédiée à la valorisation de contenus et d'informations en RDC.",
+    tags: ["Next.js", "Contenu", "Application"],
     featured: false,
   },
 ] as const;
