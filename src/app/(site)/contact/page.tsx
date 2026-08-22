@@ -79,11 +79,14 @@ export default function ContactPage() {
             </ul>
 
             <div className="mt-10">
-              <p className="meta">Territoire</p>
+              <p className="meta">Où je travaille</p>
               <p className="mt-3 font-display text-heading font-semibold text-paper">
                 {profile.territory}
               </p>
-              <p className="meta mt-2">Europe ↔ Afrique</p>
+              <p className="mt-3 text-sm leading-6 text-paper/55">
+                À distance, sur site en Hauts-de-France et en Belgique, et sur place à Kinshasa
+                selon les projets.
+              </p>
             </div>
           </div>
         </div>

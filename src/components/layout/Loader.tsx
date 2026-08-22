@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
@@ -64,9 +65,14 @@ export default function Loader() {
           transition={{ duration: 0.9, ease: EASE }}
           aria-hidden
         >
-          <span className="font-display text-[13vw] font-semibold leading-none tracking-[-0.05em] text-paper sm:text-[8vw]">
-            AMY
-          </span>
+          <Image
+            src="/assets/brand/amy-monogram.webp"
+            alt=""
+            width={190}
+            height={73}
+            priority
+            className="h-[9vw] w-auto max-h-24 min-h-8"
+          />
           <div className="flex items-end justify-between">
             <span className="meta">Chargement</span>
             <span className="font-mono text-[13vw] leading-none text-paper sm:text-[7vw]">

@@ -1,12 +1,15 @@
 import Link from "next/link";
 
+import SiteChrome from "@/components/layout/SiteChrome";
+
 import RevealLines from "@/components/ui/RevealLines";
 import { ArrowRight } from "@/components/ui/Icons";
 import { featuredProjects } from "@/data/projects";
 
 export default function NotFound() {
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-between pt-[var(--header-h)]">
+    <SiteChrome>
+      <section className="relative flex min-h-[100svh] flex-col justify-between pt-[var(--header-h)]">
       <div className="column-rules" aria-hidden />
 
       <div className="shell relative flex flex-1 flex-col justify-center py-16">
@@ -46,6 +49,7 @@ export default function NotFound() {
           ))}
         </ul>
       </div>
-    </section>
+      </section>
+    </SiteChrome>
   );
 }

@@ -65,11 +65,6 @@ def build_brand():
         canvas.convert("RGB").save(name, optimize=True)
         print(name, canvas.size)
 
-    dz = Image.open("_source-assets/logo-dizayna.png").convert("RGBA")
-    dz = dz.crop(dz.getbbox())
-    dz.thumbnail((320, 320), Image.LANCZOS)
-    webp(dz, f"{OUT}/brand/dizayna.webp", lossless=True)
-    print("brand/dizayna.webp", dz.size)
 
 # --------------------------------------------------------------------------
 # 2. Portrait — strip the burnt-in blue orbit, desaturate, crop editorially

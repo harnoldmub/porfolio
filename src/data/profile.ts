@@ -8,14 +8,14 @@ export const profile = {
   shortName: "AMY",
   role: "Software Engineer · Product Builder · IT Project Lead",
   eyebrow: "Software Engineer · Product Builder",
-  territory: "France · Belgique · RD Congo",
-  territoryShort: "FR · BE · RDC",
+  territory: "France · Belgium · DR Congo",
   email: "arnold@mubuanga.com",
   phone: "+33698827193",
   phoneDisplay: "+33 6 98 82 71 93",
   instagram: "harnold_mub",
   instagramUrl: "https://www.instagram.com/harnold_mub/",
   linkedin: "https://www.linkedin.com/in/arnold-mubuanga-yate-149b7b151",
+  github: "https://github.com/harnoldmub",
   availability: "Ouvert aux missions et collaborations",
   // Hero
   heroLines: ["I BUILD", "DIGITAL", "PRODUCTS."] as const,
@@ -32,7 +32,7 @@ export const profile = {
 export const stats = [
   { value: "6+", label: "années d'expérience", note: "Depuis 2018" },
   { value: "50+", label: "projets réalisés ou accompagnés", note: "Web, métier, SaaS" },
-  { value: "FULL-STACK", label: "front, back, delivery", note: "De la maquette à la prod" },
+  { value: "FULL-STACK", label: "conception, développement, production", note: "De la maquette à la mise en ligne" },
 ] as const;
 
 export const aboutLines = ["I BUILD THINGS", "THAT PEOPLE USE."] as const;
@@ -76,12 +76,12 @@ export const capabilities = [
   {
     number: "02",
     title: "Software Engineering",
-    body: "Architecture front et back, développement full-stack, API et intégrations.",
+    body: "Architecture applicative, développement full-stack, API et intégrations.",
   },
   {
     number: "03",
     title: "IT Project Leadership",
-    body: "Cadrage, coordination des parties prenantes, arbitrages et delivery.",
+    body: "Cadrage, coordination des parties prenantes, arbitrages et mise en production.",
   },
   {
     number: "04",

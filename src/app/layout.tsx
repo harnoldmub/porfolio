@@ -2,13 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, Inter, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
-import Cursor from "@/components/layout/Cursor";
-import Grain from "@/components/layout/Grain";
-import Loader from "@/components/layout/Loader";
-import PageTransition from "@/components/layout/PageTransition";
-import SiteFooter from "@/components/layout/SiteFooter";
-import SiteHeader from "@/components/layout/SiteHeader";
-import SmoothScroll from "@/components/layout/SmoothScroll";
 import { profile } from "@/data/profile";
 import { defaultDescription, defaultOg, identityJsonLd, JsonLd, metadataBase, siteName } from "@/lib/seo";
 
@@ -88,17 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="skip-link">
           Aller au contenu
         </a>
-        <Loader />
-        <SmoothScroll />
-        <Cursor />
-        <Grain />
-        <SiteHeader />
-        <PageTransition>
-          <main id="main" className="relative z-[2]">
-            {children}
-          </main>
-          <SiteFooter />
-        </PageTransition>
+        {children}
       </body>
     </html>
   );

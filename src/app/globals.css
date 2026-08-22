@@ -331,6 +331,12 @@ html.lenis, html.lenis body { height: auto; }
   .cursor-dot, .cursor-label { display: none !important; }
 }
 
+/* The single animation on the utility pages: the block settling in. */
+@keyframes rib-in {
+  from { opacity: 0; transform: translate3d(0, 10px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
 /* ==========================================================================
    Marquee
    ========================================================================== */

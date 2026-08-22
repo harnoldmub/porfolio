@@ -59,7 +59,10 @@ export default function AboutPage() {
                 className="object-cover object-top"
               />
             </div>
-            <p className="meta mt-4">{profile.name}</p>
+            <p className="meta mt-4">
+              <span className="text-paper">{profile.shortName}</span>
+              <span aria-hidden className="text-paper/40">®</span>
+            </p>
           </div>
 
           <div className="col-span-6 mt-10 md:col-span-7 md:mt-0 lg:col-span-7 lg:col-start-6">

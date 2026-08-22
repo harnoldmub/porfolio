@@ -79,10 +79,10 @@ export const projects: readonly Project[] = [
     challenge:
       "Passer du sur-mesure au SaaS sans perdre ce qui faisait la valeur du sur-mesure. Chaque mariage doit garder son identité visuelle propre tout en s'appuyant sur un socle unique, isolé par tenant, administrable par des gens qui ne sont pas techniques.",
     solution:
-      "Une architecture multi-tenant où chaque mariage dispose de son espace, de son thème et de son domaine, servie par une base de code unique. Un back-office pensé pour des couples : invités, événements datés, quotas, invitations PDF générées dynamiquement, codes d'accès privés.",
+      "Une architecture multi-tenant où chaque mariage dispose de son espace, de son thème et de son domaine, servie par une base de code unique. Une interface d'administration pensée pour des couples : invités, événements datés, quotas, invitations PDF générées dynamiquement, codes d'accès privés.",
     contribution: [
       "Architecture multi-tenant et modèle de données",
-      "Développement complet, front et back",
+      "Développement complet, interface et services",
       "Génération dynamique des invitations PDF",
       "Direction artistique du produit et du site vitrine",
       "Mise en production et exploitation",
@@ -191,7 +191,6 @@ export const projects: readonly Project[] = [
       "Passerelle e-Visa",
       "Contacts et points de présence",
     ],
-    featured: 5,
   },
   {
     slug: "salon-congo-paris",
@@ -222,7 +221,6 @@ export const projects: readonly Project[] = [
       "Réservation de places",
       "Informations pratiques",
     ],
-    featured: 6,
   },
   {
     slug: "tselem-studio",
@@ -253,7 +251,7 @@ export const projects: readonly Project[] = [
       "Réservation et prise de contact",
       "Direction artistique typographique",
     ],
-    featured: 7,
+    featured: 5,
   },
   {
     slug: "awa-network",
@@ -466,7 +464,7 @@ export const projects: readonly Project[] = [
       "Une composition éditoriale calme, un accès par code réservé aux invités, et un RSVP qui enregistre la présence par cérémonie.",
     contribution: [
       "Conception et direction artistique",
-      "Développement front et back",
+      "Développement de l'interface et des services",
       "Modèle de données invités et RSVP",
     ],
     features: [

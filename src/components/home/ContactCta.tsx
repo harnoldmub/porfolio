@@ -34,7 +34,7 @@ export default function ContactCta() {
             </p>
             <Magnetic>
               <Link href="/contact" className="btn btn-primary mt-8" data-cursor="hover">
-                Start a conversation
+                Démarrer la conversation
                 <ArrowRight className="arrow h-4 w-4" />
               </Link>
             </Magnetic>

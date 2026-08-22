@@ -56,10 +56,10 @@ export default function Hero() {
         delay={0.85}
       >
         <p className="meta shrink-0">
-          <span className="sm:hidden">{profile.territoryShort}</span>
-          <span className="hidden sm:inline">{profile.territory}</span>
+          <span className="text-paper">{profile.shortName}</span>
+          <span aria-hidden className="text-paper/40">®</span>
+          <span className="hidden sm:inline"> · {profile.name}</span>
         </p>
-        <p className="meta hidden lg:block">Europe ↔ Afrique</p>
         <span className="meta hidden shrink-0 items-center gap-2 sm:inline-flex">
           Scroll
           <ArrowDown className="h-3.5 w-3.5" />

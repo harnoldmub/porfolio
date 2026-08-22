@@ -56,10 +56,14 @@ banners, desaturates the chrome ring still, cleans the tech SVGs, and renders
 ## Structure
 
 ```
-src/app/            routes — /, /work, /work/[slug], /about, /contact,
-                    /carte, /rib, 404, sitemap, robots
+src/app/
+  (site)/           the portfolio — /, /work, /work/[slug], /about,
+                    /contact, /carte. Wrapped in SiteChrome.
+  (tool)/           utility routes — /rib. A mark, a way back, nothing else:
+                    no loader, no smooth scroll, no cursor, no footer.
+  not-found.tsx     404, sitemap.ts, robots.ts, icons
 src/components/
-  layout/           header, mobile menu, footer, cursor, loader,
+  layout/           chrome — header, mobile menu, footer, cursor, loader,
                     page transition, smooth scroll, grain
   ui/               reveal primitives, marquee, magnetic, icons, forms
   home/             homepage sections + the WebGL hero object
@@ -77,3 +81,8 @@ src/lib/            seo helpers, reveal hook, class merger
   start state is scoped to `.js` — without JavaScript the page renders finished.
 - `/carte` and `/rib` are private utility pages: reachable by direct link,
   `noindex`, and excluded from the sitemap and robots.
+- `/carte/vcard` serves a real `.vcf` so the card lands in the phone's address
+  book. `/rib` copies entirely in the browser — no bank detail is ever sent
+  anywhere. Its "Télécharger le RIB" button appears only when
+  `public/assets/rib.pdf` actually exists; drop the document in and it shows
+  up. Nothing generates a bank document.

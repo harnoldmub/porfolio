@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -53,7 +54,17 @@ export default function PageTransition({ children }: { children: React.ReactNode
               animate={{ opacity: [0, 1, 1, 0] }}
               transition={{ duration: 0.85, times: [0, 0.42, 0.52, 0.75] }}
             >
-              {labelFor(pathname)}
+              {pathname === "/" ? (
+                <Image
+                  src="/assets/brand/amy-monogram.webp"
+                  alt=""
+                  width={190}
+                  height={73}
+                  className="h-[7vw] w-auto max-h-20 min-h-8"
+                />
+              ) : (
+                labelFor(pathname)
+              )}
             </motion.span>
           </motion.div>
         )}
