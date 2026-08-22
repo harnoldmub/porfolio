@@ -56,7 +56,7 @@ export default function BankDetails({ fields }: { fields: readonly BankField[] }
             return (
               <div
                 key={field.label}
-                className="flex items-start justify-between gap-4 border-b border-paper-line px-5 py-4 last:border-b-0 sm:px-6 sm:py-5"
+                className="flex items-start justify-between gap-4 border-b border-paper-line px-5 py-3.5 last:border-b-0 sm:px-6 sm:py-4"
               >
                 <div className="min-w-0">
                   <dt className="meta text-ink/45">{field.label}</dt>
@@ -97,7 +97,7 @@ export default function BankDetails({ fields }: { fields: readonly BankField[] }
       <button
         type="button"
         onClick={() => copy("__all", all)}
-        className="btn btn-primary mt-4 w-full justify-center"
+        className="btn btn-primary mt-3 w-full justify-center"
       >
         {copied === "__all" ? "Coordonnées copiées" : "Copier les coordonnées"}
       </button>

@@ -96,7 +96,7 @@ export default function CartePage() {
         <ShareLink url={`${siteUrl}/carte`} />
 
         <div className="mt-10 flex flex-col gap-2 border-t border-ink-line pt-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-          <p className="meta">{profile.territory}</p>
+          <p className="meta">{profile.role}</p>
           <Link
             href="/work"
             className="meta inline-flex min-h-11 items-center hover:text-paper"

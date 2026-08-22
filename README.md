@@ -27,6 +27,16 @@ npm run audit -- http://localhost:3000 ./.audit 375,768,1440
 errors, failed requests, horizontal overflow, heading structure and broken
 images, writing full-page screenshots to the output directory.
 
+```bash
+npm run contrast -- http://localhost:3000 /
+```
+
+`npm run contrast` checks text contrast against the *moving* hero object. A
+single frame proves nothing there — a highlight sweeping under a line can drop
+it below AA for a second — so it samples each element across a full rotation on
+two phones and a desktop, masks to the pixels the glyphs actually cover, and
+fails if anything falls under WCAG AA.
+
 ## Content
 
 Everything the site says lives in two files — no CMS, no database:
@@ -63,6 +73,7 @@ src/app/
                     no loader, no smooth scroll, no cursor, no footer.
   not-found.tsx     404, sitemap.ts, robots.ts, icons
 src/components/
+  games/            Snake, Breakout and the shared engine, shell and overlay
   layout/           chrome — header, mobile menu, footer, cursor, loader,
                     page transition, smooth scroll, grain
   ui/               reveal primitives, marquee, magnetic, icons, forms
@@ -79,6 +90,12 @@ src/lib/            seo helpers, reveal hook, class merger
   asked for reduced motion. Any failure leaves the still in place.
 - Reveals are CSS transitions toggled by an IntersectionObserver, and the hidden
   start state is scoped to `.js` — without JavaScript the page renders finished.
+- Two mini-games live in `src/components/games`, sharing one engine, one HUD
+  and one overlay. They are lazy-loaded: nothing game-related is fetched until
+  the 404 is reached or the line under the RIB is clicked, so the portfolio
+  bundle is unaffected. Scores and the sound preference live in `localStorage`
+  and nowhere else; sound is off by default. Typing `AMY` on the 404 starts
+  Snake — undocumented on purpose.
 - `/carte` and `/rib` are private utility pages: reachable by direct link,
   `noindex`, and excluded from the sitemap and robots.
 - `/carte/vcard` serves a real `.vcf` so the card lands in the phone's address

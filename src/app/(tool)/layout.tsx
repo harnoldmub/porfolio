@@ -10,7 +10,7 @@ export default function ToolLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className="on-paper flex min-h-[100svh] flex-col bg-paper text-ink">
       <header className="shrink-0">
-        <div className="mx-auto flex w-full max-w-[34rem] items-center justify-between px-gutter py-6">
+        <div className="mx-auto flex w-full max-w-[34rem] items-center justify-between px-gutter py-4">
           <Link href="/" aria-label="AMY — accueil" className="inline-flex items-end gap-1">
             <Image
               src="/assets/brand/amy-monogram.webp"

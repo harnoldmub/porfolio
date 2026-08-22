@@ -43,7 +43,6 @@ export default function SiteFooter() {
               ENGINEERING <span className="text-blue-text">×</span> PRODUCT{" "}
               <span className="text-blue-text">×</span> BUSINESS
             </p>
-            <p className="meta mt-2">{profile.territory}</p>
           </div>
 
           <nav aria-label="Liens externes" className="lg:text-right">

@@ -22,9 +22,12 @@ export default function ChromeRing() {
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const coarse = window.matchMedia("(pointer: coarse)").matches;
-    const weak = (navigator.hardwareConcurrency ?? 4) < 4 || window.innerWidth < 768;
-    if (reduced || coarse || weak) return;
+    // Touch is not a reason to stand still — it only changes how the ring is
+    // driven and how hard it is allowed to push the GPU.
+    const touch = window.matchMedia("(pointer: coarse)").matches;
+    const memory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
+    const weak = (navigator.hardwareConcurrency ?? 4) < 4 || (memory !== undefined && memory < 3);
+    if (reduced || weak) return;
 
     let disposed = false;
     let cleanup: (() => void) | undefined;
@@ -37,7 +40,13 @@ export default function ChromeRing() {
       const el = host.current;
       let renderer: import("three").WebGLRenderer;
       try {
-        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+        renderer = new THREE.WebGLRenderer({
+          alpha: true,
+          // MSAA is the single most expensive setting on a phone GPU; the
+          // higher pixel density covers the edges well enough without it.
+          antialias: !touch,
+          powerPreference: touch ? "default" : "high-performance",
+        });
       } catch {
         return; // no WebGL — the still frame stays
       }
@@ -45,7 +54,7 @@ export default function ChromeRing() {
       const size = () => ({ w: el.clientWidth, h: el.clientHeight });
       const { w, h } = size();
       renderer.setSize(w, h);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, touch ? 1.5 : 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1.4;
       el.appendChild(renderer.domElement);
@@ -110,7 +119,7 @@ export default function ChromeRing() {
       scene.add(key);
       const fill = new THREE.DirectionalLight(0xf2f0ea, 0.7);
       fill.position.set(-5, -2, 3);
-      scene.add(fill);
+      if (!touch) scene.add(fill); // one less light to evaluate per fragment
       const rim = new THREE.PointLight(0x245dff, 9, 16);
       rim.position.set(-3.4, -1.2, -2.4);
       scene.add(rim);
@@ -156,8 +165,10 @@ export default function ChromeRing() {
       let spin = 0;              // scroll-velocity impulse
       let lastScroll = window.scrollY;
       let visible = true;
+      const clock = new THREE.Clock();
 
       const onPointer = (event: PointerEvent) => {
+        if (event.pointerType !== "mouse") return;
         pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
         pointer.y = (event.clientY / window.innerHeight) * 2 - 1;
       };
@@ -183,22 +194,35 @@ export default function ChromeRing() {
       });
       io.observe(el);
 
-      const clock = new THREE.Clock();
+      // A backgrounded tab should not keep a phone's GPU awake.
+      const onVisibility = () => {
+        if (document.hidden) clock.stop();
+        else clock.start();
+      };
+      document.addEventListener("visibilitychange", onVisibility);
+
       let frame = 0;
       const tick = () => {
         frame = requestAnimationFrame(tick);
         if (!visible) return;                       // off-screen costs nothing
         const dt = Math.min(clock.getDelta(), 0.05);
 
-        eased.x += (pointer.x - eased.x) * 0.045;
-        eased.y += (pointer.y - eased.y) * 0.045;
+        const t = clock.elapsedTime;
+
+        // Without a pointer the ring drives itself: two slow, out-of-phase
+        // waves standing in for the parallax, so it never sits still.
+        const driftX = touch ? Math.sin(t * 0.23) * 0.6 : pointer.x;
+        const driftY = touch ? Math.cos(t * 0.19) * 0.5 : pointer.y;
+
+        eased.x += (driftX - eased.x) * 0.045;
+        eased.y += (driftY - eased.y) * 0.045;
         spin *= 0.94;                                // impulse decays
 
-        group.rotation.y += dt * 0.16 + spin;
+        group.rotation.y += dt * (touch ? 0.22 : 0.16) + spin;
         group.rotation.x = eased.y * 0.26;
         group.rotation.z = -eased.x * 0.12;
         group.position.x = eased.x * 0.34;
-        group.position.y = -eased.y * 0.22 + Math.sin(clock.elapsedTime * 0.55) * 0.09;
+        group.position.y = -eased.y * 0.22 + Math.sin(t * 0.55) * 0.09;
 
         renderer.render(scene, camera);
       };
@@ -210,6 +234,7 @@ export default function ChromeRing() {
         window.removeEventListener("pointermove", onPointer);
         window.removeEventListener("scroll", onScroll);
         window.removeEventListener("resize", onResize);
+        document.removeEventListener("visibilitychange", onVisibility);
         material.dispose();
         key.dispose();
         fill.dispose();

@@ -18,9 +18,29 @@ export default function Hero() {
 
       {/* The ring is allowed to bleed past the right edge, so the type and the
           object share one frame instead of stacking into two blocks. */}
-      <div className="pointer-events-none absolute inset-y-0 right-[-30%] z-0 w-[125%] opacity-35 sm:right-[-18%] sm:w-[95%] sm:opacity-45 lg:right-[-8%] lg:top-[6%] lg:h-[80%] lg:w-[52%] lg:opacity-90">
+      <div className="ring-mask pointer-events-none absolute inset-y-0 right-[-30%] z-0 w-[125%] opacity-40 sm:right-[-18%] sm:w-[95%] sm:opacity-55 lg:right-[-13%] lg:top-[11%] lg:h-[72%] lg:w-[46%] lg:opacity-90">
         <ChromeRing />
       </div>
+
+      {/* Below lg the ring passes under the running text, and it is now moving.
+          A veil anchored to the text column keeps the copy readable without
+          flattening the object where it actually reads. */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] lg:hidden"
+        style={{
+          background:
+            "linear-gradient(100deg,#050505 0%,rgba(5,5,5,0.9) 42%,rgba(5,5,5,0.62) 66%,rgba(5,5,5,0.3) 86%,rgba(5,5,5,0.15) 100%)",
+        }}
+      />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-[1] hidden lg:block"
+        style={{
+          background:
+            "linear-gradient(100deg,#050505 0%,rgba(5,5,5,0.85) 50%,rgba(5,5,5,0.42) 70%,rgba(5,5,5,0.1) 88%,transparent 97%)",
+        }}
+      />
 
       <div className="shell relative z-10 flex flex-1 flex-col justify-center py-10">
         <Reveal as="p" immediate className="meta meta-blue" delay={0.15}>
@@ -31,7 +51,7 @@ export default function Hero() {
           <RevealLines lines={profile.heroLines} immediate delay={0.25} stagger={0.08} fit />
         </h1>
 
-        <Reveal as="p" className="measure mt-8 text-lead text-paper/70 lg:mt-10 lg:max-w-[46ch]" delay={0.62} immediate>
+        <Reveal as="p" className="measure mt-8 text-lead text-paper/85 lg:mt-10 lg:max-w-[46ch] lg:text-paper/70" delay={0.62} immediate>
           {profile.heroSubtitle}
         </Reveal>
 

@@ -152,10 +152,104 @@ def build_projects():
 # --------------------------------------------------------------------------
 # 4. Hero object — chrome ring: light GLB for WebGL + desaturated still
 # --------------------------------------------------------------------------
+def strip_unused_attributes(src, dest, drop=("TEXCOORD_0", "TANGENT", "COLOR_0")):
+    """Rewrite a GLB without vertex attributes nothing reads.
+
+    The ring is shaded by a material with no texture, so its UVs are dead
+    weight on every visitor's connection — and on a phone that is the single
+    biggest cost of showing it at all.
+    """
+    import struct, json as _json
+
+    with open(src, "rb") as f:
+        _, _, _ = struct.unpack("<III", f.read(12))
+        jlen, _ = struct.unpack("<II", f.read(8))
+        gltf = _json.loads(f.read(jlen))
+        blen, _ = struct.unpack("<II", f.read(8))
+        blob = f.read(blen)
+
+    for mesh in gltf.get("meshes", []):
+        for prim in mesh.get("primitives", []):
+            for name in drop:
+                prim["attributes"].pop(name, None)
+
+    # Which accessors survive, and therefore which bufferViews.
+    keep = set()
+    for mesh in gltf.get("meshes", []):
+        for prim in mesh.get("primitives", []):
+            keep.update(prim["attributes"].values())
+            if "indices" in prim:
+                keep.add(prim["indices"])
+    for anim in gltf.get("animations", []):
+        for smp in anim.get("samplers", []):
+            keep.update((smp["input"], smp["output"]))
+    for skin in gltf.get("skins", []):
+        if "inverseBindMatrices" in skin:
+            keep.add(skin["inverseBindMatrices"])
+
+    old_acc = gltf["accessors"]
+    acc_map, accessors, views, chunks, offset = {}, [], [], [], 0
+    view_map = {}
+
+    for i, acc in enumerate(sorted(keep)):
+        acc_map[acc] = i
+    for acc in sorted(keep):
+        a = dict(old_acc[acc])
+        vi = a.get("bufferView")
+        if vi is not None and vi not in view_map:
+            v = gltf["bufferViews"][vi]
+            start = v.get("byteOffset", 0)
+            data = blob[start : start + v["byteLength"]]
+            pad = (-len(data)) % 4
+            nv = {k: v[k] for k in ("byteStride", "target") if k in v}
+            nv["buffer"] = 0
+            nv["byteOffset"] = offset
+            nv["byteLength"] = len(data)
+            view_map[vi] = len(views)
+            views.append(nv)
+            chunks.append(data + b"\x00" * pad)
+            offset += len(data) + pad
+        if vi is not None:
+            a["bufferView"] = view_map[vi]
+        accessors.append(a)
+
+    for mesh in gltf.get("meshes", []):
+        for prim in mesh.get("primitives", []):
+            prim["attributes"] = {k: acc_map[v] for k, v in prim["attributes"].items()}
+            if "indices" in prim:
+                prim["indices"] = acc_map[prim["indices"]]
+
+    gltf["accessors"] = accessors
+    gltf["bufferViews"] = views
+    gltf["buffers"] = [{"byteLength": offset}]
+    gltf.pop("images", None)
+    gltf.pop("samplers", None)
+    gltf.pop("textures", None)
+
+    jb = _json.dumps(gltf, separators=(",", ":")).encode()
+    jb += b" " * ((-len(jb)) % 4)
+    bb = b"".join(chunks)
+    total = 12 + 8 + len(jb) + 8 + len(bb)
+    with open(dest, "wb") as f:
+        f.write(struct.pack("<III", 0x46546C67, 2, total))
+        f.write(struct.pack("<II", len(jb), 0x4E4F534A))
+        f.write(jb)
+        f.write(struct.pack("<II", len(bb), 0x004E4942))
+        f.write(bb)
+
+
 def build_hero():
     ensure(f"{OUT}/3d")
-    shutil.copy("_source-assets/chrome-ring.glb", f"{OUT}/3d/chrome-ring.glb")
-    print("3d/chrome-ring.glb", os.path.getsize(f"{OUT}/3d/chrome-ring.glb") // 1024, "KB")
+    src = "_source-assets/chrome-ring.glb"
+    dest = f"{OUT}/3d/chrome-ring.glb"
+    strip_unused_attributes(src, dest)
+    print(
+        "3d/chrome-ring.glb",
+        os.path.getsize(src) // 1024,
+        "KB ->",
+        os.path.getsize(dest) // 1024,
+        "KB",
+    )
 
     im = Image.open("_source-assets/chrome-ring-render.png").convert("RGBA")
     im = im.crop(im.getbbox())

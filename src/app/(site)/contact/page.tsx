@@ -10,7 +10,7 @@ import { buildMetadata, JsonLd, siteUrl } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
-    "Parlons de votre produit, de votre application métier ou de votre plateforme. Arnold Mubuanga Yate — France, Belgique, RD Congo.",
+    "Parlons de votre produit, de votre application métier ou de votre plateforme. Écrire à Arnold Mubuanga Yate (AMY).",
   path: "/contact",
 });
 
@@ -78,16 +78,6 @@ export default function ContactPage() {
               ))}
             </ul>
 
-            <div className="mt-10">
-              <p className="meta">Où je travaille</p>
-              <p className="mt-3 font-display text-heading font-semibold text-paper">
-                {profile.territory}
-              </p>
-              <p className="mt-3 text-sm leading-6 text-paper/55">
-                À distance, sur site en Hauts-de-France et en Belgique, et sur place à Kinshasa
-                selon les projets.
-              </p>
-            </div>
           </div>
         </div>
       </section>

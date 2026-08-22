@@ -21,7 +21,7 @@ const config: Config = {
       },
       grey: "#8B8B8B",
       blue: "#245DFF",
-      "blue-text": "#3A70FF",
+      "blue-text": "#4C7DFF",
     },
     borderRadius: { none: "0", full: "9999px" },
     fontFamily: {

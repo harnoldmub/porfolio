@@ -1,9 +1,10 @@
 import Link from "next/link";
 
+import Arcade404 from "@/components/games/Arcade404";
 import SiteChrome from "@/components/layout/SiteChrome";
 
 import RevealLines from "@/components/ui/RevealLines";
-import { ArrowRight } from "@/components/ui/Icons";
+import { ArrowLeft } from "@/components/ui/Icons";
 import { featuredProjects } from "@/data/projects";
 
 export default function NotFound() {
@@ -15,22 +16,23 @@ export default function NotFound() {
       <div className="shell relative flex flex-1 flex-col justify-center py-16">
         <p className="meta meta-blue">Erreur 404</p>
         <h1 className="mt-6 font-display text-mega font-semibold text-paper">
-          <RevealLines lines={["CETTE PAGE", "N'A JAMAIS", "ÉTÉ LIVRÉE."]} immediate delay={0.1} fit />
+          <RevealLines lines={["404", "YOU'RE OFF", "THE GRID."]} immediate delay={0.1} fit />
         </h1>
         <p className="measure mt-8 text-lead text-paper/70">
-          L&apos;adresse est mauvaise, ou la page a été retirée. Le reste du site fonctionne
-          parfaitement — voici par où reprendre.
+          Cette page n&apos;existe pas. Autant jouer un peu avant de repartir.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
           <Link href="/" className="btn btn-primary" data-cursor="hover">
+            <ArrowLeft className="h-4 w-4" />
             Retour à l&apos;accueil
-            <ArrowRight className="arrow h-4 w-4" />
           </Link>
           <Link href="/work" className="btn btn-ghost" data-cursor="hover">
             Voir les projets
           </Link>
         </div>
+
+        <Arcade404 />
       </div>
 
       <div className="shell relative border-t border-ink-line py-6">

@@ -126,7 +126,6 @@ export default function MobileMenu({
               {profile.email}
               <ArrowUpRight className="h-4 w-4" />
             </a>
-            <p className="meta mt-6">{profile.territory}</p>
           </motion.div>
         </motion.div>
       )}

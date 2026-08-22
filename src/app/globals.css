@@ -12,8 +12,9 @@
   --grey: #8b8b8b;
   --blue: #245dff;
   /* #245dff sits at 3.96:1 on the ink — fine for rules, fills and the 3D
-     accent, short of AA for small text. Type uses this lifted variant. */
-  --blue-text: #3a70ff;
+     accent, short of AA for small text. Type uses this lifted variant, which
+     keeps headroom for the moments the hero object passes behind it. */
+  --blue-text: #4c7dff;
 
   --line-dark: rgba(242, 240, 234, 0.12);
   --line-light: rgba(5, 5, 5, 0.14);
@@ -329,6 +330,44 @@ html.lenis, html.lenis body { height: auto; }
 .cursor-label[data-visible="true"] { opacity: 1; }
 @media (hover: none), (pointer: coarse) {
   .cursor-dot, .cursor-label { display: none !important; }
+}
+
+/* The hero object dissolves on the side the headline runs across, so the two
+   never fight. Masking the object reads as a deliberate fade-out, where a
+   scrim laid over the whole hero would just look like a dimmed image. */
+.ring-mask {
+  -webkit-mask-image: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.28) 26%,
+    rgba(0, 0, 0, 0.78) 48%,
+    #000 66%
+  );
+  mask-image: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.28) 26%,
+    rgba(0, 0, 0, 0.78) 48%,
+    #000 66%
+  );
+}
+@media (min-width: 1024px) {
+  .ring-mask {
+    -webkit-mask-image: linear-gradient(
+      104deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.18) 22%,
+      rgba(0, 0, 0, 0.72) 44%,
+      #000 62%
+    );
+    mask-image: linear-gradient(
+      104deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.18) 22%,
+      rgba(0, 0, 0, 0.72) 44%,
+      #000 62%
+    );
+  }
 }
 
 /* The single animation on the utility pages: the block settling in. */

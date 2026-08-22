@@ -8,7 +8,6 @@ export const profile = {
   shortName: "AMY",
   role: "Software Engineer · Product Builder · IT Project Lead",
   eyebrow: "Software Engineer · Product Builder",
-  territory: "France · Belgium · DR Congo",
   email: "arnold@mubuanga.com",
   phone: "+33698827193",
   phoneDisplay: "+33 6 98 82 71 93",

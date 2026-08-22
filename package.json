@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "assets": "python3 scripts/build-assets.py",
     "captures": "node scripts/screenshots.mjs",
-    "audit": "node scripts/audit.mjs"
+    "audit": "node scripts/audit.mjs",
+    "contrast": "node scripts/contrast.mjs"
   },
   "dependencies": {
     "autoprefixer": "^10.4.22",
@@ -33,6 +34,7 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.35",
     "playwright": "^1.59.1",
+    "pngjs": "^7.0.0",
     "tailwindcss": "^3.4.18",
     "typescript": "^5"
   }

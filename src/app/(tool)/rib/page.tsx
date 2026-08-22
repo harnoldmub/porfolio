@@ -3,6 +3,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 
 import BankDetails, { type BankField } from "@/components/ui/BankDetails";
+import RibEasterEgg from "@/components/games/RibEasterEgg";
 import { profile } from "@/data/profile";
 import { buildMetadata } from "@/lib/seo";
 
@@ -34,14 +35,14 @@ const hasPdf = existsSync(path.join(process.cwd(), "public", "assets", "rib.pdf"
 
 export default function RibPage() {
   return (
-    <section className="flex flex-1 items-start justify-center px-gutter pb-16 pt-4 sm:items-center sm:pb-24">
+    <section className="flex flex-1 items-start justify-center px-gutter pb-10 pt-2 sm:items-center sm:pb-16">
       <div className="w-full max-w-[34rem] animate-[rib-in_0.5s_cubic-bezier(0.16,1,0.3,1)_both]">
         <p className="meta text-ink/45">Coordonnées bancaires</p>
         <h1 className="mt-3 font-display text-[clamp(1.75rem,7vw,2.5rem)] font-semibold leading-[1.02] tracking-[-0.035em] text-ink">
           {profile.name}
         </h1>
 
-        <div className="mt-8">
+        <div className="mt-6">
           <BankDetails fields={FIELDS} />
         </div>
 
@@ -51,16 +52,19 @@ export default function RibPage() {
           </a>
         )}
 
-        <p className="mt-8 text-sm leading-6 text-ink/50">
+        <p className="mt-6 text-sm leading-6 text-ink/50">
           Vérifiez toujours ces coordonnées auprès de moi avant d&apos;émettre un virement.
-          Je ne demande jamais de virement vers un autre compte.
         </p>
 
-        <p className="meta mt-6 text-ink/40">
-          <a href={`mailto:${profile.email}`} className="link-underline hover:text-ink">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
+          <RibEasterEgg />
+          <a
+            href={`mailto:${profile.email}`}
+            className="meta link-underline inline-flex min-h-11 items-center text-ink/40 hover:text-ink"
+          >
             {profile.email}
           </a>
-        </p>
+        </div>
       </div>
     </section>
   );

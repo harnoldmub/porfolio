@@ -25,7 +25,6 @@ export function GET() {
     `URL:${siteUrl}`,
     `X-SOCIALPROFILE;TYPE=linkedin:${profile.linkedin}`,
     `X-SOCIALPROFILE;TYPE=instagram:${profile.instagramUrl}`,
-    `NOTE:${profile.territory}`,
     "END:VCARD",
   ].join("\r\n");
 
