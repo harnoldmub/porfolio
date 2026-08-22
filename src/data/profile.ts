@@ -1,525 +1,210 @@
+/**
+ * Single source of truth for everything the site says about Arnold.
+ * Editing this file is enough to update the whole portfolio.
+ */
+
 export const profile = {
   name: "Arnold Mubuanga Yate",
   shortName: "AMY",
-  title: "Software Engineer & Digital Product Builder",
-  headline: "Applications métier, plateformes web et produits digitaux à forte valeur d'usage.",
-  availability: "Disponible pour échanges et collaborations",
-  location: "Basé entre la France et la Belgique",
+  role: "Software Engineer · Product Builder · IT Project Lead",
+  eyebrow: "Software Engineer · Product Builder",
+  territory: "France · Belgique · RD Congo",
+  territoryShort: "FR · BE · RDC",
   email: "arnold@mubuanga.com",
   phone: "+33698827193",
+  phoneDisplay: "+33 6 98 82 71 93",
   instagram: "harnold_mub",
+  instagramUrl: "https://www.instagram.com/harnold_mub/",
   linkedin: "https://www.linkedin.com/in/arnold-mubuanga-yate-149b7b151",
-  github: "#",
-  summary:
-    "Depuis plus de 6 ans, j'accompagne organisations, entreprises et porteurs de projets dans la conception de solutions numériques performantes: applications web, plateformes métiers, systèmes d'information, événements digitaux et outils SaaS.",
-  homeIntro:
-    "Je conçois des solutions numériques simples, robustes et utiles, avec une attention forte portée à l'usage, à la structure et à l'impact concret.",
-  resumeIntro:
-    "Ingénieur développement, chef de projet informatique et entrepreneur digital, je relie engineering, pilotage et vision produit pour faire émerger des solutions numériques durables.",
-  yearsExperience: "6+",
+  availability: "Ouvert aux missions et collaborations",
+  // Hero
+  heroLines: ["I BUILD", "DIGITAL", "PRODUCTS."] as const,
+  heroSubtitle:
+    "Je transforme des idées, des besoins métier et des opportunités en produits numériques réellement utilisables — de la conception à la mise en production.",
+  // Manifesto
+  manifestoWords: ["ENGINEERING", "PRODUCT", "BUSINESS"] as const,
+  manifesto:
+    "Je construis à l'intersection de la technologie, du produit et des usages. Comprendre une idée, la cadrer, concevoir la solution, l'écrire, la livrer : c'est la même chaîne, et je la tiens de bout en bout.",
+  manifestoSecondary:
+    "Le code n'est jamais le point de départ. Le point de départ, c'est un métier à comprendre, des contraintes à accepter et des gens qui vont devoir se servir du résultat tous les jours.",
 } as const;
 
-export const trustedCompanies = [
-  "Ville de Lille",
-  "Dassault Systèmes",
-  "Capgemini",
-  "Decathlon",
-  "Hewani",
-  "Structures en transformation",
+export const stats = [
+  { value: "6+", label: "années d'expérience", note: "Depuis 2018" },
+  { value: "50+", label: "projets réalisés ou accompagnés", note: "Web, métier, SaaS" },
+  { value: "FULL-STACK", label: "front, back, delivery", note: "De la maquette à la prod" },
 ] as const;
 
-export const expertiseAreas = [
-  {
-    title: "Moteurs de recherche",
-    description:
-      "Conception d'expériences de recherche, navigation, pertinence et restitution d'information dans des environnements métier complexes.",
-  },
-  {
-    title: "Plateformes data & intelligence",
-    description:
-      "Assemblage de produits qui fédèrent des flux, des sources et des usages variés autour d'une interface cohérente.",
-  },
-  {
-    title: "Architecture applicative",
-    description:
-      "Structuration d'applications web robustes, maintenables et orientées produit, du front jusqu'aux services métiers.",
-  },
-  {
-    title: "Delivery & accompagnement",
-    description:
-      "Travail transverse avec produit, design et équipes techniques pour livrer de façon fiable sur des sujets à forte visibilité.",
-  },
+export const aboutLines = ["I BUILD THINGS", "THAT PEOPLE USE."] as const;
+
+export const aboutParagraphs = [
+  "Je suis Arnold Mubuanga Yate. Ingénieur développement et chef de projet informatique à la Ville de Lille, entrepreneur digital le reste du temps.",
+  "Depuis plus de six ans, je conçois et développe des applications web, des plateformes métier, des systèmes d'information et des produits SaaS pour des organisations publiques, des entreprises et des porteurs de projets.",
+  "Avant Lille, j'ai passé six ans chez Dassault Systèmes, dans l'équipe R&D de NETVIBES, sur 3DSearch — une plateforme de recherche utilisée à l'échelle internationale. J'y ai appris ce que veut dire construire pour l'échelle, la performance et la durée.",
+  "Le reste de mon temps part dans mes propres produits : plateformes événementielles, outils SaaS, studios créatifs. C'est là que j'apprends le plus vite, parce qu'il n'y a personne d'autre pour cadrer, arbitrer ou livrer.",
 ] as const;
 
-export const selectedReferences = [
+export const approach = [
   {
-    company: "Ville de Lille",
-    mission: "Chef de projet informatique",
-    impact:
-      "Pilotage de projets informatiques dans un environnement public où la coordination, la fiabilité et la lisibilité des livrables sont essentielles.",
+    step: "01",
+    title: "Comprendre",
+    body: "Le métier avant l'outil. Je cadre le besoin réel, les contraintes et ce qui doit exister en premier.",
   },
   {
-    company: "Dassault Systèmes",
-    mission: "3DSearch / 3DEXPERIENCE Platform",
-    impact:
-      "Travail sur une expérience de recherche transverse au sein d'un écosystème industriel mondial.",
+    step: "02",
+    title: "Concevoir",
+    body: "Architecture, parcours, modèle de données. Les décisions structurantes se prennent avant la première ligne de code.",
   },
   {
-    company: "Capgemini",
-    mission: "Mission client retail",
-    impact:
-      "Intervention sur des sujets de delivery et de plateforme dans un contexte grand compte.",
+    step: "03",
+    title: "Construire",
+    body: "Développement full-stack, interfaces soignées, code lisible et maintenable par quelqu'un d'autre que moi.",
   },
   {
-    company: "Decathlon",
-    mission: "Plateforme digitale",
-    impact:
-      "Contribution à des usages produit où la fluidité et la performance conditionnent l'adoption.",
-  },
-  {
-    company: "Hewani",
-    mission: "Lead développeur",
-    impact:
-      "Pilotage de projets web et accompagnement de structures dans leur transition numérique.",
+    step: "04",
+    title: "Livrer",
+    body: "Mise en production, accompagnement des utilisateurs, corrections, itérations. Un produit qui ne sert pas n'est pas fini.",
   },
 ] as const;
 
-export const services = [
+export const capabilities = [
   {
-    icon: "Zap",
-    title: "Conseil & cadrage",
-    description:
-      "Clarification du besoin, priorisation, architecture de la réponse et trajectoire de livraison.",
+    number: "01",
+    title: "Digital Products",
+    body: "Applications, plateformes et outils métier conçus pour un usage quotidien réel.",
   },
   {
-    icon: "Layers",
-    title: "Pilotage de projet IT",
-    description:
-      "Coordination des parties prenantes, suivi d'avancement, qualité de delivery et sécurisation des décisions.",
+    number: "02",
+    title: "Software Engineering",
+    body: "Architecture front et back, développement full-stack, API et intégrations.",
   },
   {
-    icon: "Globe",
-    title: "Produits & plateformes web",
-    description:
-      "Sites premium, outils métier et plateformes sur mesure conçus pour durer et servir l'usage réel.",
+    number: "03",
+    title: "IT Project Leadership",
+    body: "Cadrage, coordination des parties prenantes, arbitrages et delivery.",
   },
   {
-    icon: "Users",
-    title: "Transformation & accompagnement",
-    description:
-      "Interface entre métier, technique et produit pour faire avancer les projets sensibles sans friction inutile.",
-  },
-] as const;
-
-export const techStack = [
-  { name: "Angular", icon: "/icons/angular.svg" },
-  { name: "React", icon: "/icons/react.svg" },
-  { name: "Next.js", icon: "/icons/nextdotjs.svg" },
-  { name: "TypeScript", icon: "/icons/typescript.svg" },
-  { name: "JavaScript", icon: "/icons/javascript.svg" },
-  { name: "HTML5", icon: "/icons/html5.svg" },
-  { name: "CSS3 / SCSS", icon: "/icons/css3.svg" },
-  { name: "Symfony", icon: "/icons/symfony.svg" },
-  { name: "Node.js", icon: "/icons/nodedotjs.svg" },
-  { name: "NestJS", icon: "/icons/nestjs.svg" },
-  { name: "PHP", icon: "/icons/php.svg" },
-] as const;
-
-export const projects = [
-  {
-    slug: "salon-congo-paris",
-    name: "Congo à Paris",
-    url: "https://salon.congonaparis.fr/",
-    screenshot: "/images/projets/congonaparis/congo-paris-desktop.png",
-    screenshotMobile: "/images/projets/congonaparis/congo-paris-mobile.png",
-    category: "Événementiel",
-    description:
-      "Plateforme de présentation pour un rendez-vous de la diaspora congolaise à Paris, avec programme, partenaires et réservation.",
-    tags: ["Next.js", "Événement", "Direction artistique"],
-    featured: true,
+    number: "04",
+    title: "Digital Experiences",
+    body: "Sites et expériences web premium, direction artistique et motion.",
   },
   {
-    slug: "mboka-hub",
-    name: "Mboka Hub",
-    url: "https://mbokahub.com/",
-    screenshot: "/screenshots/mbokahub_com.png",
-    screenshotMobile: "/screenshots/mbokahub_com_mobile.png",
-    category: "Plateforme",
-    description:
-      "Hub communautaire et digital pour la diaspora congolaise — networking, projets et opportunités.",
-    tags: ["React", "Node.js", "Community"],
-    featured: true,
-  },
-  {
-    slug: "tselem-rdc",
-    name: "Tselem RDC",
-    url: "https://tselemrdc.com/",
-    screenshot: "/screenshots/tselemrdc_com.png",
-    screenshotMobile: "/screenshots/tselemrdc_com_mobile.png",
-    category: "Institutionnel",
-    description:
-      "Site institutionnel pour une ONG engagée pour les droits et le développement en République Démocratique du Congo.",
-    tags: ["Next.js", "CMS", "ONG"],
-    featured: false,
-  },
-  {
-    slug: "e-visa",
-    name: "E-Visa",
-    url: "https://e-visa.mubuanga.com/",
-    screenshot: "/screenshots/e-visa_mubuanga_com.png",
-    screenshotMobile: "/screenshots/e-visa_mubuanga_com_mobile.png",
-    category: "Application",
-    description:
-      "Application de traitement de demandes de visa en ligne — interface sécurisée et fluide pour les usagers.",
-    tags: ["React", "TypeScript", "Formulaires"],
-    featured: true,
-  },
-  {
-    slug: "bloc-leopards",
-    name: "Bloc Léopards",
-    url: "https://blocleopards.mubuanga.com/",
-    screenshot: "/screenshots/blocleopards_mubuanga_com.png",
-    screenshotMobile: "/screenshots/blocleopards_mubuanga_com_mobile.png",
-    category: "Communauté",
-    description:
-      "Plateforme dédiée aux supporters de l'équipe nationale de football de la RDC, Les Léopards.",
-    tags: ["Next.js", "Sport", "Communauté"],
-    featured: true,
-  },
-  {
-    slug: "momento-wedding",
-    name: "Momento Wedding",
-    url: "https://momento.wedding/",
-    screenshot: "/screenshots/momento_wedding.png",
-    screenshotMobile: "/screenshots/momento_wedding_mobile.png",
-    category: "Événementiel",
-    description:
-      "Agence événementielle spécialisée en mariages — vitrine premium avec galerie et demandes de contact.",
-    tags: ["Next.js", "Design", "Événementiel"],
-    featured: true,
-  },
-  {
-    slug: "kecha-2026",
-    name: "Kecha 2026",
-    url: "https://kecha2026.com",
-    screenshot: "/screenshots/kecha_2026.png",
-    screenshotMobile: "/screenshots/kecha_2026_mobile.png",
-    category: "Mariage",
-    description:
-      "Expérience web sur mesure pour un mariage, avec une direction artistique élégante et un accès privé.",
-    tags: ["React", "Design", "Événement"],
-    featured: true,
-  },
-  {
-    slug: "mami-samarylin-2026",
-    name: "Mami & Samarylin 2026",
-    url: "https://mamisamarylin2026.com",
-    screenshot: "/screenshots/mami_samarylin_2026.png",
-    screenshotMobile: "/screenshots/mami_samarylin_2026_mobile.png",
-    category: "Mariage",
-    description:
-      "Site événementiel privé pensé pour partager les informations, les temps forts et l'expérience d'un mariage.",
-    tags: ["Next.js", "Événement", "Expérience digitale"],
-    featured: true,
-  },
-  {
-    slug: "daylora",
-    name: "Daylora",
-    url: "https://daylora.co/",
-    screenshot: "/screenshots/daylora_co.png",
-    screenshotMobile: "/screenshots/daylora_co_mobile.png",
-    category: "Mariage",
-    description:
-      "Vitrine digitale dédiée à l'univers du mariage, avec une atmosphère éditoriale et une présentation premium.",
-    tags: ["Next.js", "Direction artistique", "Mariage"],
-    featured: true,
-  },
-  {
-    slug: "u-moja",
-    name: "U-Moja",
-    url: "https://u-moja.org/",
-    screenshot: "/screenshots/u-moja_org.png",
-    screenshotMobile: "/screenshots/u-moja_org_mobile.png",
-    category: "Associatif",
-    description:
-      "Site associatif pour une organisation de solidarité africaine — projets, actualités et engagement.",
-    tags: ["React", "CMS", "Association"],
-    featured: false,
-  },
-  {
-    slug: "dgm",
-    name: "DGM",
-    url: "https://dgm.mubuanga.com/",
-    screenshot: "/screenshots/dgm_mubuanga_com.png",
-    screenshotMobile: "/screenshots/dgm_mubuanga_com_mobile.png",
-    category: "Application",
-    description:
-      "Application web pour la Direction Générale de Migration — gestion administrative et procédures en ligne.",
-    tags: ["React", "TypeScript", "Gouvernance"],
-    featured: false,
-  },
-  {
-    slug: "fondation-noah-sadiki",
-    name: "Fondation Noah Sadiki",
-    url: "https://fondationnoahsadiki.org/",
-    screenshot: "/screenshots/fondationnoahsadiki_org.png",
-    screenshotMobile: "/screenshots/fondationnoahsadiki_org_mobile.png",
-    category: "Institutionnel",
-    description:
-      "Site institutionnel d'une fondation caritative — collecte de dons, projets humanitaires et galerie d'actions.",
-    tags: ["Next.js", "Fondation", "Dons"],
-    featured: false,
-  },
-  {
-    slug: "cozy-interieur",
-    name: "Cozy Intérieur",
-    url: "https://cozyinterieur.com/",
-    screenshot: "/screenshots/cozyinterieur_com.png",
-    screenshotMobile: "/screenshots/cozyinterieur_com_mobile.png",
-    category: "Site vitrine",
-    description:
-      "Site vitrine pour une agence de décoration intérieure — galerie de réalisations, services et devis en ligne.",
-    tags: ["Next.js", "Design", "Décoration"],
-    featured: false,
-  },
-  {
-    slug: "malkya",
-    name: "Malkya",
-    url: "https://malkya.co/",
-    screenshot: "/screenshots/malkya_co.png",
-    screenshotMobile: "/screenshots/malkya_co_mobile.png",
-    category: "E-commerce",
-    description:
-      "Plateforme e-commerce et lifestyle pour une marque africaine contemporaine — catalogue et expérience d'achat.",
-    tags: ["Next.js", "E-commerce", "Lifestyle"],
-    featured: false,
-  },
-  {
-    slug: "awa-network",
-    name: "AWA Network",
-    url: "http://awanetwork.com/",
-    screenshot: "/screenshots/awanetwork_com.png",
-    screenshotMobile: "/screenshots/awanetwork_com_mobile.png",
-    category: "Plateforme",
-    description:
-      "Plateforme de paiement qui connecte les entreprises aux principaux réseaux de mobile money en RDC.",
-    tags: ["Next.js", "Paiement", "API"],
-    featured: false,
-  },
-  {
-    slug: "mboka-mubuanga",
-    name: "Mboka",
-    url: "https://mboka.mubuanga.com/",
-    screenshot: "/screenshots/mbokahub_com.png",
-    screenshotMobile: "/screenshots/mbokahub_com_mobile.png",
-    category: "Plateforme",
-    description:
-      "Projet digital Mboka, dédié à la création d'une expérience communautaire et utile pour la diaspora.",
-    tags: ["React", "Plateforme", "Communauté"],
-    featured: false,
-  },
-  {
-    slug: "docu243",
-    name: "Docu243",
-    url: "https://docu243.mubuanga.com/",
-    screenshot: "/screenshots/dgm_mubuanga_com.png",
-    screenshotMobile: "/screenshots/dgm_mubuanga_com_mobile.png",
-    category: "Application",
-    description:
-      "Application documentaire et digitale dédiée à la valorisation de contenus et d'informations en RDC.",
-    tags: ["Next.js", "Contenu", "Application"],
-    featured: false,
+    number: "05",
+    title: "Product Strategy",
+    body: "Transformer un besoin métier flou en produit réalisable et priorisé.",
   },
 ] as const;
 
-export type Project = (typeof projects)[number];
+export const stack = [
+  "TypeScript", "React", "Next.js", "Angular", "Node.js", "NestJS",
+  "PHP 8", "Symfony", "API Platform", "PostgreSQL", "MySQL", "Docker",
+  "GitLab CI/CD", "REST", "SCSS", "Tailwind",
+] as const;
+
+export const stackMarks = [
+  { name: "TypeScript", icon: "/assets/icons/typescript.svg" },
+  { name: "React", icon: "/assets/icons/react.svg" },
+  { name: "Next.js", icon: "/assets/icons/nextdotjs.svg" },
+  { name: "Angular", icon: "/assets/icons/angular.svg" },
+  { name: "Node.js", icon: "/assets/icons/nodedotjs.svg" },
+  { name: "NestJS", icon: "/assets/icons/nestjs.svg" },
+  { name: "Symfony", icon: "/assets/icons/symfony.svg" },
+  { name: "PHP", icon: "/assets/icons/php.svg" },
+  { name: "JavaScript", icon: "/assets/icons/javascript.svg" },
+  { name: "Sass", icon: "/assets/icons/sass.svg" },
+  { name: "HTML5", icon: "/assets/icons/html5.svg" },
+  { name: "CSS3", icon: "/assets/icons/css3.svg" },
+] as const;
 
 export const experiences = [
   {
-    period: "Depuis novembre 2024",
+    period: "2024 —",
+    periodLabel: "Depuis novembre 2024",
+    year: "2024",
     company: "Ville de Lille",
-    role: "Ingénieur Développement / Chef de Projet Informatique",
+    role: "Ingénieur Développement · Chef de Projet Informatique",
     summary:
-      "Pilotage et développement d'applications destinées aux services municipaux et aux associations lilloises.",
-    details: [
-      "Développement d'applications métiers pour les services municipaux.",
-      "Pilotage technique et fonctionnel de projets numériques.",
-      "Conception d'API et d'interfaces web modernes.",
-      "Accompagnement des utilisateurs et des équipes métier.",
+      "Je pilote et développe les applications métier des services municipaux et des associations lilloises, avec une double casquette technique et fonctionnelle.",
+    highlights: [
+      "Développement d'applications métier pour les services municipaux",
+      "Pilotage technique et fonctionnel de projets numériques",
+      "Conception d'API et d'interfaces web modernes",
+      "Accompagnement des utilisateurs et des équipes métier",
     ],
-    stack: ["PHP", "Symfony", "API", "Angular", "Pilotage", "Collectivité"],
+    stack: ["PHP 8", "Symfony", "API Platform", "Angular", "Docker", "Pilotage"],
+    major: true,
   },
   {
     period: "2021 — 2024",
+    periodLabel: "2021 — 2024",
+    year: "2021",
     company: "Dassault Systèmes",
-    role: "Software Engineering Specialist",
+    role: "Software Engineering Specialist · 3DSearch, NETVIBES",
     summary:
-      "Développement de fonctionnalités stratégiques de la plateforme 3DSearch au sein de l'équipe R&D de NETVIBES.",
-    details: [
-      "Développement de fonctionnalités de recherche avancée.",
-      "Amélioration des performances et de l'expérience utilisateur.",
-      "Participation à des projets internationaux à forte volumétrie.",
-      "Travail en environnement Agile et R&D.",
+      "Développement de fonctionnalités stratégiques de 3DSearch, la plateforme de recherche transverse de la 3DEXPERIENCE, au sein de l'équipe R&D NETVIBES.",
+    highlights: [
+      "Fonctionnalités de recherche avancée sur de fortes volumétries",
+      "Travail continu sur la performance et l'expérience utilisateur",
+      "Projets internationaux, environnement Agile et R&D",
+      "Écosystème CATIA, SOLIDWORKS, SIMULIA, DELMIA, ENOVIA, BIOVIA",
     ],
-    stack: ["JavaScript", "TypeScript", "Recherche", "UX", "Agile", "R&D"],
+    stack: ["TypeScript", "JavaScript", "Search", "UX", "Agile", "R&D"],
+    major: true,
   },
   {
     period: "2018 — 2020",
+    periodLabel: "2018 — 2020",
+    year: "2018",
     company: "Dassault Systèmes",
-    role: "Apprenti Développeur Front-End",
+    role: "Développeur Front-End · Alternance",
     summary:
-      "Développement d'interfaces utilisateurs et participation à l'évolution de la plateforme 3DSearch.",
-    details: [
-      "Développement d'interfaces utilisateurs.",
-      "Participation à l'évolution de la plateforme 3DSearch.",
-      "Collaboration avec les équipes produit et design.",
+      "Développement d'interfaces et participation à l'évolution de la plateforme 3DSearch, en lien direct avec les équipes produit et design.",
+    highlights: [
+      "Développement d'interfaces utilisateur",
+      "Évolution de la plateforme 3DSearch",
+      "Collaboration produit et design",
     ],
-    stack: ["Front-End", "JavaScript", "Produit", "Design", "3DSearch"],
+    stack: ["JavaScript", "Front-end", "Produit", "Design"],
+    major: false,
   },
 ] as const;
 
-export const skillGroups = [
+export const ventures = [
   {
-    name: "Développement Web & Applications Métier",
-    items: [
-      "PHP 8",
-      "Symfony",
-      "API Platform",
-      "Angular",
-      "TypeScript",
-      "JavaScript",
-      "MySQL",
-      "Docker",
-      "GitLab CI/CD",
-      "Architecture logicielle",
-      "Conception d'API REST",
-      "Authentification JWT & LDAP",
-    ],
-  },
-  {
-    name: "Gestion de Projet",
-    items: [
-      "Analyse des besoins",
-      "Conception fonctionnelle",
-      "Pilotage de projets",
-      "Méthodes Agile",
-      "Coordination des équipes",
-      "Documentation technique",
-      "Accompagnement utilisateurs",
-    ],
-  },
-  {
-    name: "Produits Digitaux & SaaS",
-    items: [
-      "Conception produit",
-      "UX/UI",
-      "Automatisation des processus",
-      "Plateformes événementielles",
-      "Outils de gestion",
-      "Solutions métier sur mesure",
-    ],
-  },
-] as const;
-
-export const education = [
-  {
-    school: "Ingénierie informatique",
-    degree: "Parcours orienté développement logiciel et produits digitaux",
-    period: "2015 — 2018",
-  },
-] as const;
-
-export const languages = [
-  { name: "Français", level: "Natif" },
-  { name: "Anglais", level: "Professionnel" },
-  { name: "Lingala", level: "Natif" },
-] as const;
-
-export const interests = [
-  "Technologie",
-  "Innovation",
-  "Projets à impact africain et international",
-  "Produits digitaux",
-  "Communautés",
-] as const;
-
-export const dassaultMission = {
-  company: "Dassault Systèmes",
-  role: "Software Engineering Specialist",
-  team: "3DSearch · NETVIBES",
-  period: "2021 — 2024",
-  context:
-    "Participation au développement de fonctionnalités stratégiques de la plateforme de recherche 3DSearch utilisée à l'échelle internationale.",
-  description:
-    "Au sein de l'équipe R&D de NETVIBES, j'ai contribué à l'évolution de la plateforme 3DSearch, avec un travail portant sur la recherche avancée, la performance, l'expérience utilisateur et les usages à forte volumétrie dans un environnement international.",
-  brands: ["CATIA", "SOLIDWORKS", "SIMULIA", "DELMIA", "ENOVIA", "BIOVIA", "MEDIDATA"],
-  highlights: [
-    "Développement de fonctionnalités de recherche avancée.",
-    "Amélioration des performances et de l'expérience utilisateur.",
-    "Participation à des projets internationaux à forte volumétrie.",
-    "Travail en environnement Agile et R&D.",
-  ],
-  stack: ["JavaScript", "TypeScript", "Front-end", "Recherche avancée", "Agile", "R&D"],
-} as const;
-
-export const lilleMission = {
-  company: "Ville de Lille",
-  role: "Ingénieur Développement / Chef de Projet Informatique",
-  period: "Depuis novembre 2024",
-  summary:
-    "Aujourd'hui, je pilote et développe des applications destinées aux services municipaux et aux associations lilloises, avec une double approche technique et fonctionnelle.",
-  highlights: [
-    "Développement d'applications métiers pour les services municipaux.",
-    "Pilotage technique et fonctionnel de projets numériques.",
-    "Conception d'API et d'interfaces web modernes.",
-    "Accompagnement des utilisateurs et des équipes métier.",
-  ],
-  tags: ["Collectivité", "Applications métiers", "API", "Pilotage", "Accompagnement"],
-} as const;
-
-export const aboutParagraphs = [
-  "Je suis Arnold Mubuanga Yate (AMY), ingénieur développement, chef de projet informatique et entrepreneur digital.",
-  "Depuis plus de 6 ans, j'accompagne des organisations, entreprises et porteurs de projets dans la conception de solutions numériques performantes : applications web, plateformes métiers, systèmes d'information, événements digitaux et outils SaaS.",
-  "Aujourd'hui, j'occupe le poste d'Ingénieur Développement / Chef de Projet Informatique à la Ville de Lille, où je pilote et développe des applications destinées aux services municipaux et aux associations lilloises.",
-  "Auparavant, j'ai travaillé chez Dassault Systèmes au sein de l'équipe R&D de NETVIBES, où j'ai participé au développement de fonctionnalités stratégiques de la plateforme de recherche 3DSearch utilisée à l'échelle internationale.",
-] as const;
-
-export const cvMetrics = [
-  { value: "6+", label: "années d'expérience" },
-  { value: "50+", label: "projets réalisés ou accompagnés" },
-  { value: "Full Stack", label: "expertise technique" },
-  { value: "France · Belgique", label: "base de travail" },
-] as const;
-
-export const entrepreneurialProjects = [
-  {
-    name: "U-MOJA.org",
-    url: "https://u-moja.org/",
-    summary: "Plateforme de collecte de fonds participative pour les projets sociaux en RDC.",
-    items: ["Collecte", "Projets sociaux", "Impact", "Association", "Plateforme"],
-  },
-  {
-    name: "Momento Wedding",
-    url: "https://momento.wedding/",
-    summary: "Photographie et films de mariage haut de gamme, entre Kinshasa, Paris et destinations internationales.",
-    items: ["Mariage", "Photographie", "Film", "Image premium", "Direction artistique"],
-  },
-  {
-    name: "Cozy Interieur",
-    url: "https://cozyinterieur.com/",
-    summary: "Studio de design d'intérieur sur-mesure avec une approche sensible de l'espace et de l'esthétique.",
-    items: ["Design intérieur", "Sur-mesure", "Studio", "Décoration", "Identité visuelle"],
+    name: "Daylora",
+    url: "https://daylora.co/",
+    body: "Plateforme SaaS multi-tenant pour les mariages : site invité, gestion des convives, cagnotte.",
   },
   {
     name: "TSELEM Studio",
     url: "https://tselem.studio/",
-    summary: "Maison de l'image à Kinshasa, dédiée à la photographie, à la vidéo et à la direction artistique premium.",
-    items: ["Portrait", "Mariage", "Maternité", "Branding personnel", "Vidéo"],
+    body: "Maison de l'image à Kinshasa — photographie, film et direction artistique.",
+  },
+  {
+    name: "Momento Wedding",
+    url: "https://momento.wedding/",
+    body: "Photographie et films de mariage, entre Kinshasa, Paris et l'international.",
+  },
+  {
+    name: "Cozy Intérieur",
+    url: "https://cozyinterieur.com/",
+    body: "Studio de design d'intérieur et boutique en ligne.",
   },
 ] as const;
 
-export const visionParagraphs = [
-  "Je crois que la technologie doit résoudre des problèmes réels.",
-  "Mon objectif est de concevoir des solutions simples, durables et évolutives qui créent de la valeur pour les utilisateurs, les entreprises et les communautés.",
-  "Que ce soit dans le développement logiciel, la gestion de projet ou l'entrepreneuriat, je recherche toujours l'équilibre entre innovation, efficacité et impact concret.",
+export const references = [
+  "Ville de Lille",
+  "Dassault Systèmes",
+  "NETVIBES",
+  "Capgemini",
+  "Decathlon",
+  "Hewani",
 ] as const;
+
+export const languages = [
+  { name: "Français", level: "Natif" },
+  { name: "Lingala", level: "Natif" },
+  { name: "Anglais", level: "Professionnel" },
+] as const;
+
+export const contactLines = ["UNE IDÉE ?", "CONSTRUISONS-LA."] as const;

@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mubuanga.com
 
-## Getting Started
+Portfolio of **Arnold Mubuanga Yate (AMY)** — Software Engineer · Product Builder · IT Project Lead.
 
-First, run the development server:
+Next.js 14 (App Router) · TypeScript · Tailwind · Three.js · Framer Motion · Lenis.
+
+## Running
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set `NEXT_PUBLIC_SITE_URL` in production (defaults to `https://www.mubuanga.com`).
+It drives canonicals, OpenGraph URLs, the sitemap and the JSON-LD graph.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run typecheck
+npm run lint
+npm run audit -- http://localhost:3000 ./.audit 375,768,1440
+```
 
-## Learn More
+`npm run audit` walks every route at the given widths and reports console
+errors, failed requests, horizontal overflow, heading structure and broken
+images, writing full-page screenshots to the output directory.
 
-To learn more about Next.js, take a look at the following resources:
+## Content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Everything the site says lives in two files — no CMS, no database:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/data/profile.ts` — identity, copy, stats, capabilities, experience.
+- `src/data/projects.ts` — the case studies. Adding one entry adds it to the
+  index, the homepage selection (via `featured`), its own `/work/[slug]` page,
+  its metadata, its JSON-LD and the prev/next navigation.
 
-## Deploy on Vercel
+## Assets
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`public/assets` is **generated**, never edited by hand. The originals —
+purchased 3D packs, raw site captures, the untouched portrait and logo — live
+in `_source-assets/`, which is git-ignored and never served.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run captures   # re-capture the project sites into _source-assets/screenshots
+npm run assets     # select, clean, rename, resize and re-encode into public/assets
+```
+
+`scripts/build-assets.py` is the whole pipeline: it strips the burnt-in orbit
+from the portrait, normalises every capture to 16:10 while cropping out cookie
+banners, desaturates the chrome ring still, cleans the tech SVGs, and renders
+`public/og.png` and the favicons. Run individual steps with
+`python3 scripts/build-assets.py projects portrait`.
+
+## Structure
+
+```
+src/app/            routes — /, /work, /work/[slug], /about, /contact,
+                    /carte, /rib, 404, sitemap, robots
+src/components/
+  layout/           header, mobile menu, footer, cursor, loader,
+                    page transition, smooth scroll, grain
+  ui/               reveal primitives, marquee, magnetic, icons, forms
+  home/             homepage sections + the WebGL hero object
+  work/             project feature block, case study gallery
+src/data/           content
+src/lib/            seo helpers, reveal hook, class merger
+```
+
+## Notes
+
+- The hero's chrome ring is progressive enhancement: the still frame renders
+  first, and Three.js only boots on pointer devices with 4+ cores that have not
+  asked for reduced motion. Any failure leaves the still in place.
+- Reveals are CSS transitions toggled by an IntersectionObserver, and the hidden
+  start state is scoped to `.js` — without JavaScript the page renders finished.
+- `/carte` and `/rib` are private utility pages: reachable by direct link,
+  `noindex`, and excluded from the sitemap and robots.

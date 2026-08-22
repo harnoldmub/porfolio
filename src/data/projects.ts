@@ -1,0 +1,526 @@
+/**
+ * Case-study source of truth. Adding a project = adding one entry here:
+ * the index page, the homepage selection, the case study, its metadata,
+ * its JSON-LD and the prev/next navigation all derive from this array.
+ *
+ * `year` is declarative (year the site went live as I know it) — adjust freely.
+ * Nothing in `outcome` is a measured statistic; it only states what shipped.
+ */
+
+export type Project = {
+  slug: string;
+  name: string;
+  year: string;
+  category: string;
+  role: string;
+  url: string;
+  /** One line, shown on the index and in the project hero. */
+  tagline: string;
+  /** Two or three sentences, shown under the big preview. */
+  summary: string;
+  stack: readonly string[];
+  context: string;
+  challenge: string;
+  solution: string;
+  contribution: readonly string[];
+  features: readonly string[];
+  outcome?: string;
+  /** Homepage selection order — undefined means index-only. */
+  featured?: number;
+};
+
+export const projects: readonly Project[] = [
+  {
+    slug: "e-visa",
+    name: "E-Visa RDC",
+    year: "2025",
+    category: "Application publique",
+    role: "Développement · Conception produit",
+    url: "https://e-visa.mubuanga.com/",
+    tagline: "Demander un visa pour la RD Congo, entièrement en ligne.",
+    summary:
+      "Un parcours de demande de visa dématérialisé : formulaire long, pièces justificatives, paiement et suivi de dossier, pour un public international qui ne recommencera pas deux fois si l'expérience échoue.",
+    stack: ["React", "TypeScript", "Node.js", "Formulaires longs", "Upload sécurisé"],
+    context:
+      "Une demande de visa est une procédure administrative dense : plusieurs dizaines de champs, des pièces à fournir, des règles qui changent selon la nationalité et le motif du voyage. Portée sur le web, elle se heurte à des utilisateurs qui remplissent le formulaire une seule fois dans leur vie, souvent depuis un mobile et une connexion moyenne.",
+    challenge:
+      "Transformer un dossier papier en parcours numérique sans le simplifier abusivement. Le formulaire devait rester exhaustif tout en restant franchissable : sauvegarde de la progression, erreurs compréhensibles, et une interface qui ne demande jamais deux fois la même information.",
+    solution:
+      "Un parcours découpé en étapes courtes avec état sauvegardé, une validation champ par champ plutôt qu'un mur d'erreurs à la fin, un module d'upload de pièces qui contrôle format et poids côté client, et un suivi de dossier consultable après soumission. L'interface reste volontairement sobre : c'est une démarche officielle, pas un produit marketing.",
+    contribution: [
+      "Conception du parcours de demande et du modèle de données",
+      "Développement de l'interface et des composants de formulaire",
+      "Gestion des pièces justificatives et des états de dossier",
+      "Intégration avec les écrans de suivi et de vérification",
+    ],
+    features: [
+      "Formulaire multi-étapes avec sauvegarde de progression",
+      "Validation contextuelle selon nationalité et motif",
+      "Dépôt et contrôle des pièces justificatives",
+      "Suivi de dossier et vérification de visa",
+      "Interface bilingue et responsive",
+    ],
+    outcome: "Plateforme en ligne, du formulaire public jusqu'au suivi de dossier.",
+    featured: 1,
+  },
+  {
+    slug: "daylora",
+    name: "Daylora",
+    year: "2025",
+    category: "Produit SaaS",
+    role: "Fondateur · Architecture · Développement",
+    url: "https://daylora.co/",
+    tagline: "Le SaaS qui donne à chaque mariage son propre site.",
+    summary:
+      "Une plateforme multi-tenant où un couple crée son site de mariage, gère sa liste d'invités, encaisse une cagnotte et pilote sa journée — sans jamais toucher à du code.",
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Multi-tenant", "PDF dynamique"],
+    context:
+      "J'ai construit une dizaine de sites de mariage sur mesure. À chaque fois les mêmes besoins revenaient : informations pratiques, RSVP, accès privé, plan de table, cagnotte. Refaire ce travail projet par projet n'avait plus de sens : le besoin était devenu un produit.",
+    challenge:
+      "Passer du sur-mesure au SaaS sans perdre ce qui faisait la valeur du sur-mesure. Chaque mariage doit garder son identité visuelle propre tout en s'appuyant sur un socle unique, isolé par tenant, administrable par des gens qui ne sont pas techniques.",
+    solution:
+      "Une architecture multi-tenant où chaque mariage dispose de son espace, de son thème et de son domaine, servie par une base de code unique. Un back-office pensé pour des couples : invités, événements datés, quotas, invitations PDF générées dynamiquement, codes d'accès privés.",
+    contribution: [
+      "Architecture multi-tenant et modèle de données",
+      "Développement complet, front et back",
+      "Génération dynamique des invitations PDF",
+      "Direction artistique du produit et du site vitrine",
+      "Mise en production et exploitation",
+    ],
+    features: [
+      "Création de site guidée, sans code",
+      "Gestion des invités, des événements et des quotas",
+      "Invitations PDF générées à la volée",
+      "Accès privé par code",
+      "Cagnotte et suivi des participations",
+    ],
+    outcome: "Produit en production, plusieurs mariages servis depuis la même base de code.",
+    featured: 2,
+  },
+  {
+    slug: "mboka-hub",
+    name: "Mboka Hub",
+    year: "2026",
+    category: "Plateforme événementielle",
+    role: "Conception · Développement · Direction artistique",
+    url: "https://mbokahub.com/",
+    tagline: "Tout un week-end de concert, organisé depuis une seule plateforme.",
+    summary:
+      "Un hub qui rassemble programme, prestataires et communauté autour d'un événement musical majeur de la diaspora congolaise, avec un compte à rebours qui rythme l'attente.",
+    stack: ["React", "Node.js", "Direction artistique", "Espace prestataires"],
+    context:
+      "Autour d'un grand concert, tout un écosystème se met en mouvement : transport, hébergement, restauration, tenue, groupes d'amis qui s'organisent. Cette logistique se joue habituellement dans des dizaines de conversations dispersées.",
+    challenge:
+      "Créer un point de convergence qui serve deux publics opposés dans le même produit : le public qui prépare son week-end, et les prestataires qui veulent être trouvés. Deux parcours, une seule interface, sans que l'un dilue l'autre.",
+    solution:
+      "Une plateforme à deux entrées assumées dès le hero — « préparer mon week-end » et « je suis prestataire » — construite sur une direction artistique sombre et saturée qui emprunte au registre du concert plutôt qu'à celui du site de services.",
+    contribution: [
+      "Direction artistique et conception de l'interface",
+      "Développement de la plateforme et des deux parcours",
+      "Espace prestataires et mise en relation",
+      "Compte à rebours et animation éditoriale",
+    ],
+    features: [
+      "Double parcours public et prestataires",
+      "Programme et prestations par catégorie",
+      "Compte à rebours événementiel",
+      "Espace communauté et playlists",
+      "Inscription prestataire",
+    ],
+    featured: 3,
+  },
+  {
+    slug: "bloc-leopards",
+    name: "Bloc Léopards",
+    year: "2025",
+    category: "Plateforme communauté",
+    role: "Conception · Développement · Direction artistique",
+    url: "https://blocleopards.mubuanga.com/",
+    tagline: "Une tribune numérique pour les supporters des Léopards.",
+    summary:
+      "Le point de ralliement digital du mouvement de supporters de la RD Congo : mobilisation avant match, charte du bloc, coordination des tribunes.",
+    stack: ["Astro", "React", "PostgreSQL", "Direction artistique"],
+    context:
+      "Un mouvement de supporters existe d'abord dans la rue et dans le stade. Sa version numérique doit servir la mobilisation réelle — annoncer, rassembler, coordonner — et pas simplement raconter.",
+    challenge:
+      "Traduire l'énergie d'une tribune dans une interface, sans tomber dans le site de club générique. Il fallait un objet visuel qui ait le volume, le bruit et les couleurs du mouvement, tout en restant lisible sur un téléphone au milieu d'une foule.",
+    solution:
+      "Une direction artistique construite sur le jaune et le bleu de la sélection, une typographie de tribune, et une structure qui met en avant l'action à faire maintenant : rejoindre le bloc, voir la mobilisation du prochain match, connaître les règles du groupe.",
+    contribution: [
+      "Direction artistique et système visuel",
+      "Développement du site et de l'espace mobilisation",
+      "Modèle de données membres et événements",
+      "Mise en production et déploiement",
+    ],
+    features: [
+      "Mobilisation par match",
+      "Adhésion au bloc",
+      "Charte et piliers du mouvement",
+      "Actualités et médias",
+      "Bandeau d'annonces jour de match",
+    ],
+    featured: 4,
+  },
+  {
+    slug: "dgm",
+    name: "DGM",
+    year: "2025",
+    category: "Institutionnel",
+    role: "Conception · Développement",
+    url: "https://dgm.mubuanga.com/",
+    tagline: "Le site officiel de la Direction Générale de Migration.",
+    summary:
+      "Le point d'entrée numérique d'une administration de contrôle migratoire : missions, services, procédures et passerelle vers la demande de visa en ligne.",
+    stack: ["React", "TypeScript", "Contenu institutionnel"],
+    context:
+      "Une direction générale de migration s'adresse simultanément à des voyageurs étrangers, à des ressortissants et à des professionnels du tourisme. Chacun cherche une information différente, souvent dans l'urgence d'un départ.",
+    challenge:
+      "Rendre une information administrative dispersée immédiatement navigable, tout en tenant le registre institutionnel attendu d'un site officiel. La confiance se joue ici avant l'esthétique.",
+    solution:
+      "Une hiérarchie de contenu construite autour des questions réelles — de quoi ai-je besoin, où est-ce que je fais ma demande, qui contacter — avec une passerelle explicite vers la plateforme e-Visa, et une identité visuelle sobre alignée sur les codes de l'État.",
+    contribution: [
+      "Architecture de l'information et arborescence",
+      "Développement de l'interface et des gabarits de contenu",
+      "Articulation avec la plateforme e-Visa",
+      "Responsive et accessibilité",
+    ],
+    features: [
+      "Présentation des missions et services",
+      "Procédures et démarches",
+      "Actualités institutionnelles",
+      "Passerelle e-Visa",
+      "Contacts et points de présence",
+    ],
+    featured: 5,
+  },
+  {
+    slug: "salon-congo-paris",
+    name: "Congo à Paris",
+    year: "2026",
+    category: "Événementiel",
+    role: "Conception · Développement · Direction artistique",
+    url: "https://salon.congonaparis.fr/",
+    tagline: "Le rendez-vous de la diaspora congolaise à Paris.",
+    summary:
+      "La plateforme d'un salon annuel : programme, partenaires, exposants et réservation de places, sur une identité sombre et chaude qui porte l'événement.",
+    stack: ["Next.js", "Direction artistique", "Réservation"],
+    context:
+      "Un salon vit sur un calendrier court : quelques semaines pour convaincre, réserver et remplir. Le site est le seul point de vérité entre l'annonce et la porte d'entrée.",
+    challenge:
+      "Faire tenir sur une seule page la promesse de l'événement, la crédibilité des partenaires et l'appel à réserver, sans que la réservation soit noyée dans le contenu éditorial.",
+    solution:
+      "Une composition pleine page avec une réservation toujours atteignable, une palette bordeaux et or qui donne au salon un registre premium, et des sections courtes conçues pour une lecture mobile en diagonale.",
+    contribution: [
+      "Direction artistique et composition",
+      "Développement du site et du parcours de réservation",
+      "Intégration des partenaires et des exposants",
+      "Optimisation mobile",
+    ],
+    features: [
+      "Présentation et programme du salon",
+      "Partenaires et exposants",
+      "Réservation de places",
+      "Informations pratiques",
+    ],
+    featured: 6,
+  },
+  {
+    slug: "tselem-studio",
+    name: "TSELEM Studio",
+    year: "2025",
+    category: "Expérience digitale",
+    role: "Direction artistique · Développement",
+    url: "https://tselem.studio/",
+    tagline: "Créer des images qui traversent le temps.",
+    summary:
+      "Le site d'une maison de l'image à Kinshasa, construit comme un objet éditorial : typographie massive, fond noir, et les photographies comme unique matière.",
+    stack: ["Next.js", "Direction artistique", "Motion", "Galerie"],
+    context:
+      "Pour un studio photo et vidéo, le site n'est pas une vitrine parmi d'autres : c'est la première image que le client voit. Il doit prouver le niveau du studio avant même la première photo.",
+    challenge:
+      "Faire un site qui ne concurrence pas les images qu'il présente. Toute décoration superflue aurait abîmé le travail exposé.",
+    solution:
+      "Un noir profond, une grotesque massive, et une grille qui laisse les images occuper la pleine largeur. La navigation reste minimale, la mise en page change de rythme d'une section à l'autre pour éviter l'effet catalogue.",
+    contribution: [
+      "Direction artistique complète",
+      "Développement du site et des galeries",
+      "Système de mise en page éditoriale",
+      "Motion et transitions",
+    ],
+    features: [
+      "Galeries pleine largeur",
+      "Présentation des univers du studio",
+      "Réservation et prise de contact",
+      "Direction artistique typographique",
+    ],
+    featured: 7,
+  },
+  {
+    slug: "awa-network",
+    name: "AWA Network",
+    year: "2026",
+    category: "Fintech",
+    role: "Conception · Développement",
+    url: "http://awanetwork.com/",
+    tagline: "Une intégration, tous les mobile money de la RDC.",
+    summary:
+      "La vitrine produit d'une plateforme de paiement qui connecte les entreprises à Orange Money, Airtel Money, Africell et M-Pesa via une seule intégration.",
+    stack: ["Next.js", "API", "Documentation produit"],
+    context:
+      "En RDC, encaisser en ligne veut dire s'intégrer séparément à chaque opérateur mobile. Pour une entreprise, c'est autant de contrats, de formats et de dettes techniques.",
+    challenge:
+      "Expliquer une valeur d'agrégation technique à des décideurs non techniques, tout en restant crédible auprès des équipes qui vont réellement intégrer l'API.",
+    solution:
+      "Une page qui pose la promesse en une phrase, montre les opérateurs couverts comme preuve immédiate, puis descend progressivement vers le détail technique et la demande d'accès.",
+    contribution: [
+      "Conception de la page produit et du discours",
+      "Développement de l'interface",
+      "Parcours de demande d'accès",
+    ],
+    features: [
+      "Présentation de la couverture opérateurs",
+      "Parcours de demande d'intégration",
+      "FAQ et documentation",
+      "Espace partenaires",
+    ],
+  },
+  {
+    slug: "u-moja",
+    name: "U-Moja",
+    year: "2025",
+    category: "Plateforme solidaire",
+    role: "Conception · Développement",
+    url: "https://u-moja.org/",
+    tagline: "Le financement participatif des projets solidaires en RDC.",
+    summary:
+      "Une plateforme de collecte où une association ou un particulier lance une cagnotte, la partage sur WhatsApp et suit ses paiements.",
+    stack: ["React", "Paiement", "Partage social"],
+    context:
+      "Les collectes solidaires en RDC se font largement par messagerie et de main à main. Le manque de traçabilité freine la confiance et limite la portée des campagnes.",
+    challenge:
+      "Rendre le lancement d'une collecte assez simple pour être fait depuis un téléphone en quelques minutes, tout en donnant aux donateurs les repères de confiance qui manquent au circuit informel.",
+    solution:
+      "Un parcours de création en trois temps, un partage pensé d'abord pour WhatsApp, et un suivi de progression visible publiquement sur chaque campagne.",
+    contribution: [
+      "Conception du parcours de collecte",
+      "Développement de la plateforme",
+      "Intégration des paiements et du partage",
+    ],
+    features: [
+      "Création de collecte guidée",
+      "Partage WhatsApp et réseaux",
+      "Suivi de progression public",
+      "Paiement par carte",
+    ],
+  },
+  {
+    slug: "momento-wedding",
+    name: "Momento Wedding",
+    year: "2025",
+    category: "Expérience digitale",
+    role: "Direction artistique · Développement",
+    url: "https://momento.wedding/",
+    tagline: "Photographie et films de mariage, entre Kinshasa et Paris.",
+    summary:
+      "Une vitrine cinématographique pour un studio de mariage haut de gamme : portfolio, films et prise de contact.",
+    stack: ["Next.js", "Direction artistique", "Vidéo", "Galerie"],
+    context:
+      "Le mariage haut de gamme se vend par l'émotion. Un portfolio froid, aussi bien réalisé soit-il, ne déclenche pas de réservation.",
+    challenge:
+      "Donner au site la texture d'un film plutôt que celle d'un catalogue, sans sacrifier le temps de chargement sur des connexions moyennes.",
+    solution:
+      "Une entrée en plein écran sur une image de film, une typographie sérif éditoriale, et un portfolio qui alterne les échelles pour maintenir le rythme d'un montage.",
+    contribution: [
+      "Direction artistique",
+      "Développement du site et des galeries",
+      "Optimisation des médias",
+    ],
+    features: [
+      "Portfolio photo et film",
+      "Présentation des prestations",
+      "Demande de réservation",
+    ],
+  },
+  {
+    slug: "malkya",
+    name: "Malkya",
+    year: "2025",
+    category: "E-commerce",
+    role: "Conception · Développement",
+    url: "https://malkya.co/",
+    tagline: "Une marque de soins naturels, vendue en ligne.",
+    summary:
+      "La boutique en ligne d'une marque de cosmétique africaine contemporaine : catalogue, fiches produit et parcours d'achat.",
+    stack: ["Next.js", "E-commerce", "Paiement", "Catalogue"],
+    context:
+      "Une marque de soins se juge sur la confiance : composition, promesse, preuve. Le site doit vendre un produit qu'on ne peut ni sentir ni toucher.",
+    challenge:
+      "Construire un parcours d'achat qui laisse la place au discours de marque, sans allonger le chemin entre la découverte et le panier.",
+    solution:
+      "Des fiches produit qui portent la composition et l'usage au même niveau que le prix, et une navigation par besoin — corps, visage, gamme — plutôt que par référence.",
+    contribution: [
+      "Conception de la boutique et du parcours d'achat",
+      "Développement du catalogue et des fiches produit",
+      "Intégration du paiement et de la livraison",
+    ],
+    features: [
+      "Catalogue par besoin",
+      "Fiches produit détaillées",
+      "Panier et paiement",
+      "Livraison et suivi",
+    ],
+  },
+  {
+    slug: "cozy-interieur",
+    name: "Cozy Intérieur",
+    year: "2025",
+    category: "Site & boutique",
+    role: "Fondateur · Direction artistique · Développement",
+    url: "https://cozyinterieur.com/",
+    tagline: "Studio de design d'intérieur et boutique en ligne.",
+    summary:
+      "Le site d'un studio de décoration : réalisations, offres, prise de rendez-vous et boutique.",
+    stack: ["Next.js", "Boutique", "Direction artistique", "PDF"],
+    context:
+      "Un studio de décoration vend un service invisible avant la première visite. Ses réalisations sont sa seule preuve.",
+    challenge:
+      "Faire coexister un portfolio de réalisations, une offre de service structurée et une boutique, sans que le site devienne trois sites différents.",
+    solution:
+      "Un fil unique qui va de l'ambiance à l'offre puis à la boutique, une palette chaude et neutre, et des offres présentées comme des parcours plutôt que comme des grilles tarifaires.",
+    contribution: [
+      "Direction artistique et conception",
+      "Développement du site et de la boutique",
+      "Génération des documents commerciaux en PDF",
+    ],
+    features: [
+      "Galerie de réalisations",
+      "Offres et prise de rendez-vous",
+      "Boutique en ligne",
+      "Devis et documents PDF",
+    ],
+  },
+  {
+    slug: "tselem-rdc",
+    name: "TSELEM RDC",
+    year: "2025",
+    category: "Site vitrine",
+    role: "Conception · Développement",
+    url: "https://tselemrdc.com/",
+    tagline: "L'art de capturer l'émotion.",
+    summary:
+      "La vitrine photo et vidéo de TSELEM en RDC : réalisations, services et réservation.",
+    stack: ["Next.js", "Galerie", "Réservation"],
+    context:
+      "Avant l'ouverture du studio, la marque avait besoin d'une présence en ligne capable de présenter ses réalisations et de capter les demandes.",
+    challenge:
+      "Servir des galeries lourdes sur des connexions inégales sans dégrader l'impression de qualité.",
+    solution:
+      "Un carrousel d'entrée maîtrisé, des médias optimisés et une réservation accessible depuis chaque section.",
+    contribution: [
+      "Conception et développement du site",
+      "Optimisation des galeries",
+      "Parcours de réservation",
+    ],
+    features: ["Réalisations par univers", "Services", "Réservation", "Contact"],
+  },
+  {
+    slug: "fondation-noah-sadiki",
+    name: "Fondation Noah Sadiki",
+    year: "2025",
+    category: "Institutionnel",
+    role: "Conception · Développement",
+    url: "https://fondationnoahsadiki.org/",
+    tagline: "Éducation, sport et bien-être des communautés.",
+    summary:
+      "Le site d'une fondation caritative : projets, actions de terrain et collecte de dons.",
+    stack: ["Next.js", "Dons", "Contenu"],
+    context:
+      "Une fondation portée par une personnalité publique doit rendre lisible l'usage des dons et la réalité du terrain.",
+    challenge:
+      "Donner à voir les actions concrètes avant l'appel au don, pour que la demande arrive après la preuve.",
+    solution:
+      "Une structure qui ouvre sur la mission, déroule les projets menés, puis conduit au don — et non l'inverse.",
+    contribution: [
+      "Conception de l'arborescence et du discours",
+      "Développement du site",
+      "Intégration du parcours de don",
+    ],
+    features: ["Projets et actions", "Mission de la fondation", "Collecte de dons", "Actualités"],
+  },
+  {
+    slug: "kecha-2026",
+    name: "Ketsia & Chad",
+    year: "2026",
+    category: "Expérience privée",
+    role: "Conception · Développement",
+    url: "https://kecha2026.com",
+    tagline: "Une invitation de mariage devenue site privé.",
+    summary:
+      "Un site d'invitation sur mesure : compte à rebours, informations de cérémonie, RSVP et accès réservé aux invités.",
+    stack: ["React", "Express", "PostgreSQL", "Accès privé"],
+    context:
+      "Une invitation papier ne peut ni se mettre à jour ni collecter de réponses. Le site prend le relais entre l'annonce et le jour J.",
+    challenge:
+      "Garder l'élégance d'un faire-part tout en portant une mécanique de RSVP réelle, y compris la distinction entre cérémonie civile et religieuse.",
+    solution:
+      "Une composition éditoriale calme, un accès par code réservé aux invités, et un RSVP qui enregistre la présence par cérémonie.",
+    contribution: [
+      "Conception et direction artistique",
+      "Développement front et back",
+      "Modèle de données invités et RSVP",
+    ],
+    features: [
+      "Compte à rebours",
+      "Confirmation de présence par cérémonie",
+      "Accès privé par code",
+      "Informations pratiques",
+    ],
+  },
+  {
+    slug: "mami-samarylin-2026",
+    name: "Mamisa & Marylin",
+    year: "2026",
+    category: "Expérience privée",
+    role: "Conception · Développement",
+    url: "https://mamisamarylin2026.com",
+    tagline: "Un faire-part numérique, en noir et blanc.",
+    summary:
+      "Un site d'invitation minimaliste construit autour d'une seule photographie et d'un compte à rebours.",
+    stack: ["Next.js", "Direction artistique", "RSVP"],
+    context:
+      "Le couple voulait une invitation sobre, sans surcharge décorative, centrée sur une image.",
+    challenge:
+      "Tenir un parti pris minimaliste sur toute la page sans que le site paraisse vide ou inachevé.",
+    solution:
+      "Une mise en page en deux colonnes, une typographie script pour les prénoms, et le noir et blanc comme seule direction chromatique.",
+    contribution: [
+      "Direction artistique",
+      "Développement du site",
+      "Parcours de confirmation",
+    ],
+    features: ["Compte à rebours", "Confirmation de présence", "Informations pratiques"],
+  },
+];
+
+export const featuredProjects = projects
+  .filter((p) => typeof p.featured === "number")
+  .sort((a, b) => (a.featured as number) - (b.featured as number));
+
+export function getProject(slug: string) {
+  return projects.find((p) => p.slug === slug);
+}
+
+export function getProjectNeighbours(slug: string) {
+  const i = projects.findIndex((p) => p.slug === slug);
+  if (i === -1) return { previous: undefined, next: undefined };
+  return {
+    previous: projects[(i - 1 + projects.length) % projects.length],
+    next: projects[(i + 1) % projects.length],
+  };
+}
+
+export const projectImage = (slug: string, variant: "desktop" | "mobile" = "desktop") =>
+  `/assets/projects/${slug}-${variant}.webp`;
+
+/** 1200×630 social card generated by scripts/build-assets.py. */
+export const projectOgImage = (slug: string) => `/assets/og/${slug}.jpg`;

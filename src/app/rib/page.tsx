@@ -1,64 +1,58 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
-import CopyableBankField from "@/components/CopyableBankField";
-import { buildPageMetadata } from "@/lib/seo";
+import CopyField from "@/components/ui/CopyField";
+import { buildMetadata } from "@/lib/seo";
 
-const bankDetails = [
+export const metadata: Metadata = buildMetadata({
+  title: "RIB Dizayna",
+  description: "Coordonnées bancaires Dizayna.",
+  path: "/rib",
+  noIndex: true,
+});
+
+const BANK = [
   { label: "Titulaire", value: "MUBUANGA YATE" },
   { label: "IBAN", value: "FR80 2043 3026 26N2 6589 6116 230" },
   { label: "BIC", value: "NTSBFRM1XXX" },
   { label: "Domiciliation", value: "N26" },
 ] as const;
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "RIB | Dizayna",
-  description: "Coordonnées bancaires de Dizayna, faciles à consulter et à copier.",
-  path: "/rib",
-});
-
 export default function RibPage() {
   return (
-    <main className="site-canvas min-h-screen text-[#111111]">
-      <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-5 py-6 sm:px-8 sm:py-10">
-        <header className="flex items-center justify-between border-b border-black/10 pb-5">
-          <a href="/" className="text-sm font-semibold text-black/56 transition hover:text-[#356dff]">
-            AMY
-          </a>
+    <section className="flex min-h-[100svh] flex-col pt-[var(--header-h)]">
+      <div className="shell flex flex-1 flex-col justify-center py-16">
+        <div className="flex items-center justify-between border-b border-ink-line pb-6">
+          <p className="meta meta-blue">Dizayna</p>
           <Image
-            src="/logo-dizayna.png"
+            src="/assets/brand/dizayna.webp"
             alt="Dizayna"
-            width={108}
-            height={108}
-            priority
-            className="h-14 w-14 object-contain"
+            width={52}
+            height={64}
+            className="h-12 w-auto object-contain"
           />
-        </header>
+        </div>
 
-        <section className="flex flex-1 flex-col justify-center py-12 sm:py-20">
-          <p className="eyebrow text-[#356dff]">Dizayna</p>
-          <h1 className="mt-5 max-w-lg font-display text-5xl font-medium leading-[0.96] tracking-[-0.06em] sm:text-7xl">
-            Coordonnées bancaires
-          </h1>
-          <p className="mt-6 max-w-md text-sm leading-7 text-black/56">
-            Les informations essentielles, prêtes à être copiées depuis votre téléphone.
-          </p>
+        <h1 className="mt-12 font-display text-display font-semibold text-paper">
+          Coordonnées
+          <br />
+          bancaires
+        </h1>
+        <p className="measure mt-6 text-paper/60">
+          Touchez une ligne pour la copier. Vérifiez toujours les coordonnées avant un virement.
+        </p>
 
-          <div className="mt-10 border-y border-black/10 bg-[#f0f3ef] px-5 sm:px-7">
-            {bankDetails.map((detail) => (
-              <CopyableBankField key={detail.label} label={detail.label} value={detail.value} />
-            ))}
-          </div>
+        <div className="mt-12">
+          {BANK.map((detail) => (
+            <CopyField key={detail.label} label={detail.label} value={detail.value} />
+          ))}
+        </div>
 
-          <p className="mt-6 text-xs leading-5 text-black/42">
-            Vérifiez toujours les coordonnées avant d&apos;effectuer un virement.
-          </p>
-        </section>
-
-        <footer className="border-t border-black/10 pt-5 text-xs text-black/42">
-          RIB Dizayna
-        </footer>
+        <Link href="/" className="meta mt-12 inline-block hover:text-paper" data-cursor="hover">
+          ← mubuanga.com
+        </Link>
       </div>
-    </main>
+    </section>
   );
 }

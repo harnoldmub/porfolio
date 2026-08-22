@@ -1,0 +1,51 @@
+import Link from "next/link";
+
+import RevealLines from "@/components/ui/RevealLines";
+import { ArrowRight } from "@/components/ui/Icons";
+import { featuredProjects } from "@/data/projects";
+
+export default function NotFound() {
+  return (
+    <section className="relative flex min-h-[100svh] flex-col justify-between pt-[var(--header-h)]">
+      <div className="column-rules" aria-hidden />
+
+      <div className="shell relative flex flex-1 flex-col justify-center py-16">
+        <p className="meta meta-blue">Erreur 404</p>
+        <h1 className="mt-6 font-display text-mega font-semibold text-paper">
+          <RevealLines lines={["CETTE PAGE", "N'A JAMAIS", "ÉTÉ LIVRÉE."]} immediate delay={0.1} fit />
+        </h1>
+        <p className="measure mt-8 text-lead text-paper/70">
+          L&apos;adresse est mauvaise, ou la page a été retirée. Le reste du site fonctionne
+          parfaitement — voici par où reprendre.
+        </p>
+
+        <div className="mt-10 flex flex-wrap gap-4">
+          <Link href="/" className="btn btn-primary" data-cursor="hover">
+            Retour à l&apos;accueil
+            <ArrowRight className="arrow h-4 w-4" />
+          </Link>
+          <Link href="/work" className="btn btn-ghost" data-cursor="hover">
+            Voir les projets
+          </Link>
+        </div>
+      </div>
+
+      <div className="shell relative border-t border-ink-line py-6">
+        <p className="meta">Projets récents</p>
+        <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
+          {featuredProjects.slice(0, 4).map((project) => (
+            <li key={project.slug}>
+              <Link
+                href={`/work/${project.slug}`}
+                className="link-underline font-display text-lg font-medium tracking-[-0.02em] text-paper/70 hover:text-paper"
+                data-cursor="hover"
+              >
+                {project.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}

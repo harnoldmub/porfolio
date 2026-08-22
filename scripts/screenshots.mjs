@@ -2,6 +2,8 @@ import { chromium } from "playwright";
 import { mkdir } from "fs/promises";
 import { existsSync } from "fs";
 
+// Kept in sync with src/data/projects.ts — the file name maps to the slug in
+// scripts/build-assets.py, which turns these raw captures into served assets.
 const urls = [
   ["https://salon.congonaparis.fr/", "salon_congonaparis_fr"],
   ["https://mbokahub.com/", "mbokahub_com"],
@@ -14,12 +16,17 @@ const urls = [
   ["https://fondationnoahsadiki.org/", "fondationnoahsadiki_org"],
   ["https://cozyinterieur.com/", "cozyinterieur_com"],
   ["https://malkya.co/", "malkya_co"],
+  ["https://tselem.studio/", "tselem_studio"],
+  ["http://awanetwork.com/", "awanetwork_com"],
+  ["https://daylora.co/", "daylora_co"],
+  ["https://kecha2026.com/", "kecha_2026"],
+  ["https://mamisamarylin2026.com/", "mami_samarylin_2026"],
 ];
 
 const DESKTOP = { width: 1440, height: 900 };
 const MOBILE  = { width: 390,  height: 844 };  // iPhone 14
 
-const outDir = "public/screenshots";
+const outDir = "_source-assets/screenshots";
 if (!existsSync(outDir)) await mkdir(outDir, { recursive: true });
 
 const browser = await chromium.launch();
@@ -52,4 +59,4 @@ for (const [url, name] of urls) {
 }
 
 await browser.close();
-console.log("\nDone — screenshots in public/screenshots/");
+console.log("\nDone — screenshots in _source-assets/screenshots/");

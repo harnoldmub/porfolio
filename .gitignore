@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local asset sources (Envato packs, raw captures) — never served or committed
+/_source-assets/
+/.asset-tmp/
