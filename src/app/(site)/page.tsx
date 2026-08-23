@@ -5,6 +5,7 @@ import AboutTeaser from "@/components/home/AboutTeaser";
 import Capabilities from "@/components/home/Capabilities";
 import ExperienceTeaser from "@/components/home/ExperienceTeaser";
 import ContactCta from "@/components/home/ContactCta";
+import GamesTeaser from "@/components/home/GamesTeaser";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <AboutTeaser />
       <Capabilities />
       <ExperienceTeaser />
+      <GamesTeaser />
       <ContactCta />
     </>
   );

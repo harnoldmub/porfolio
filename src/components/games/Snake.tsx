@@ -124,6 +124,10 @@ export default function Snake({
     else start();
   });
 
+  // The simulation advances independently from React; this counter asks the
+  // canvas effect below to paint the current snake position on every tick.
+  const [frame, force] = useState(0);
+
   // --- simulation --------------------------------------------------------
   const pilot = useCallback(() => {
     const head = snake.current[0];
@@ -243,10 +247,9 @@ export default function Snake({
         ctx.globalAlpha = 1;
       }
     });
-  }, [size, score, status]);
+  }, [size, score, status, frame]);
 
   // Redraw every frame while the board is moving.
-  const [, force] = useState(0);
   useGameLoop(
     useCallback(() => force((n) => (n + 1) % 1000), []),
     status === "playing",

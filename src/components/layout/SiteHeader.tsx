@@ -5,19 +5,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import MobileMenu from "./MobileMenu";
 import { cn } from "@/lib/utils";
 
 export const NAV = [
   { href: "/work", label: "Projets", index: "01" },
   { href: "/about", label: "À propos", index: "02" },
   { href: "/contact", label: "Contact", index: "03" },
+  { href: "/#games", label: "Jeux", index: "04" },
 ] as const;
 
 export default function SiteHeader() {
   const pathname = usePathname();
   const [hidden, setHidden] = useState(false);
-  const [open, setOpen] = useState(false);
 
   // Hide on the way down, reveal on the way up — the nav should never sit
   // between the visitor and a full-bleed project image.
@@ -32,19 +31,20 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
-
-  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+  const isActive = (href: string) => {
+    if (href === "/#games") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
 
   return (
     <>
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-[100] transition-transform duration-500 ease-expo",
-          hidden && !open && "-translate-y-full",
-        )}
-      >
-        <div className="shell flex h-[var(--header-h)] items-center justify-between mix-blend-difference">
+        hidden && "-translate-y-full",
+      )}
+    >
+        <div className="shell flex h-[var(--header-h)] items-center gap-5 mix-blend-difference">
           <Link
             href="/"
             aria-label="AMY — accueil"
@@ -61,7 +61,10 @@ export default function SiteHeader() {
             />
           </Link>
 
-          <nav aria-label="Navigation principale" className="hidden items-center gap-10 md:flex">
+          <nav
+            aria-label="Navigation principale"
+            className="ml-auto flex max-w-[calc(100vw-7rem)] items-center gap-4 overflow-x-auto py-2 sm:gap-7 lg:gap-10"
+          >
             {NAV.map((item) => (
               <Link
                 key={item.href}
@@ -80,20 +83,8 @@ export default function SiteHeader() {
               </Link>
             ))}
           </nav>
-
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-paper md:hidden"
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-          >
-            Menu
-          </button>
         </div>
       </header>
-
-      <MobileMenu open={open} onClose={() => setOpen(false)} activeHref={pathname} />
     </>
   );
 }
