@@ -7,7 +7,7 @@ import { projects } from "@/data/projects";
 import { buildMetadata, JsonLd, siteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Selected work",
+  title: "Projets",
   description:
     "Applications publiques, plateformes SaaS, produits événementiels et expériences web — les projets conçus et développés par Arnold Mubuanga Yate.",
   path: "/work",
@@ -16,7 +16,7 @@ export const metadata: Metadata = buildMetadata({
 const listJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Selected work",
+  name: "Projets",
   url: `${siteUrl}/work`,
   hasPart: projects.map((project) => ({
     "@type": "CreativeWork",
@@ -39,7 +39,7 @@ export default function WorkPage() {
             {String(projects.length).padStart(2, "0")} projets · 2018 — 2026
           </p>
           <h1 className="mt-6 font-display text-mega font-semibold text-paper">
-            <RevealLines lines={["SELECTED", "WORK."]} immediate delay={0.1} fit />
+            <RevealLines lines={["PROJETS", "SÉLECTIONNÉS."]} immediate delay={0.1} fit />
           </h1>
           <Reveal delay={0.3}>
             <p className="measure mt-8 text-lead text-paper/70">

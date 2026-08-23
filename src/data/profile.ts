@@ -17,11 +17,11 @@ export const profile = {
   github: "https://github.com/harnoldmub",
   availability: "Ouvert aux missions et collaborations",
   // Hero
-  heroLines: ["I BUILD", "DIGITAL", "PRODUCTS."] as const,
+  heroLines: ["JE CONSTRUIS", "DES PRODUITS", "NUMÉRIQUES."] as const,
   heroSubtitle:
     "Je transforme des idées, des besoins métier et des opportunités en produits numériques réellement utilisables — de la conception à la mise en production.",
   // Manifesto
-  manifestoWords: ["ENGINEERING", "PRODUCT", "BUSINESS"] as const,
+  manifestoWords: ["INGÉNIERIE", "PRODUIT", "MÉTIER"] as const,
   manifesto:
     "Je construis à l'intersection de la technologie, du produit et des usages. Comprendre une idée, la cadrer, concevoir la solution, l'écrire, la livrer : c'est la même chaîne, et je la tiens de bout en bout.",
   manifestoSecondary:
@@ -29,12 +29,12 @@ export const profile = {
 } as const;
 
 export const stats = [
-  { value: "6+", label: "années d'expérience", note: "Depuis 2018" },
+  { value: "6+", label: "années d'expérience" },
   { value: "50+", label: "projets réalisés ou accompagnés", note: "Web, métier, SaaS" },
   { value: "FULL-STACK", label: "conception, développement, production", note: "De la maquette à la mise en ligne" },
 ] as const;
 
-export const aboutLines = ["I BUILD THINGS", "THAT PEOPLE USE."] as const;
+export const aboutLines = ["JE CONSTRUIS", "CE QUI SERT."] as const;
 
 export const aboutParagraphs = [
   "Je suis Arnold Mubuanga Yate. Ingénieur développement et chef de projet informatique à la Ville de Lille, entrepreneur digital le reste du temps.",
@@ -69,27 +69,27 @@ export const approach = [
 export const capabilities = [
   {
     number: "01",
-    title: "Digital Products",
+    title: "Produits numériques",
     body: "Applications, plateformes et outils métier conçus pour un usage quotidien réel.",
   },
   {
     number: "02",
-    title: "Software Engineering",
+    title: "Ingénierie logicielle",
     body: "Architecture applicative, développement full-stack, API et intégrations.",
   },
   {
     number: "03",
-    title: "IT Project Leadership",
+    title: "Pilotage de projets",
     body: "Cadrage, coordination des parties prenantes, arbitrages et mise en production.",
   },
   {
     number: "04",
-    title: "Digital Experiences",
+    title: "Expériences digitales",
     body: "Sites et expériences web premium, direction artistique et motion.",
   },
   {
     number: "05",
-    title: "Product Strategy",
+    title: "Stratégie produit",
     body: "Transformer un besoin métier flou en produit réalisable et priorisé.",
   },
 ] as const;

@@ -24,7 +24,7 @@ import {
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About",
+  title: "À propos",
   description:
     "Arnold Mubuanga Yate — ingénieur développement et chef de projet informatique à la Ville de Lille, ancien de Dassault Systèmes, entrepreneur digital. Parcours, approche et compétences.",
   path: "/about",
@@ -98,7 +98,7 @@ export default function AboutPage() {
       <section className="on-paper bg-paper py-section text-ink" aria-labelledby="approach-title">
         <div className="shell">
           <h2 id="approach-title" className="font-display text-display font-semibold">
-            <RevealLines lines={["IDEA → PRODUCT", "CODE → PRODUCTION"]} />
+            <RevealLines lines={["IDÉE → PRODUIT", "CODE → PRODUCTION"]} />
           </h2>
           <ol className="mt-14 lg:mt-20">
             {approach.map((item, i) => (
@@ -126,7 +126,7 @@ export default function AboutPage() {
         <div className="shell">
           <p className="meta">Parcours</p>
           <h2 id="experience-title" className="mt-6 font-display text-display font-semibold text-paper">
-            <RevealLines lines={["2017 — NOW"]} />
+            <RevealLines lines={["2017 — AUJOURD'HUI"]} />
           </h2>
 
           <ol className="mt-14 lg:mt-20">
@@ -215,7 +215,7 @@ export default function AboutPage() {
                   href={venture.url}
                   target="_blank"
                   rel="noreferrer"
-                  data-cursor="OPEN"
+                  data-cursor="OUVRIR"
                   className="group flex items-start justify-between gap-6 py-6"
                 >
                   <span>

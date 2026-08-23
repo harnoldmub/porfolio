@@ -56,7 +56,7 @@ export default function ProjectFeature({
         {/* ---- capture ---- */}
         <Link
           href={`/work/${project.slug}`}
-          data-cursor="VIEW CASE"
+          data-cursor="VOIR"
           aria-label={`Voir l'étude de cas ${project.name}`}
           className={cn(
             "col-span-6 mt-6 block md:col-span-12 lg:mt-0",
@@ -97,20 +97,12 @@ export default function ProjectFeature({
           </h3>
           <p className="measure mt-4 text-lead text-paper/65">{project.tagline}</p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
-            {project.stack.slice(0, 4).map((tech) => (
-              <span key={tech} className="meta">
-                {tech}
-              </span>
-            ))}
-          </div>
-
           <Link
             href={`/work/${project.slug}`}
-            className="mt-8 inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-paper"
+            className="mt-7 inline-flex items-center gap-2 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-paper"
             data-cursor="hover"
           >
-            <span className="link-underline">View case</span>
+            <span className="link-underline">Voir le projet</span>
             <ArrowRight className="h-4 w-4 transition-transform duration-300 ease-expo group-hover:translate-x-1" />
           </Link>
         </div>

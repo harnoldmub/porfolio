@@ -15,7 +15,7 @@ export default function ExperienceTeaser() {
       <div className="shell">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <h2 id="experience-title" className="font-display text-title font-semibold text-paper">
-            2017 — NOW
+            2017 — AUJOURD&apos;HUI
           </h2>
           <Reveal>
             <Link

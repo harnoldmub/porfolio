@@ -12,7 +12,7 @@ export default function SelectedWork() {
       <div className="shell">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <h2 id="work-title" className="font-display text-display font-semibold text-paper">
-            <RevealLines lines={["SELECTED", "WORK."]} />
+            <RevealLines lines={["PROJETS", "SÉLECTIONNÉS."]} />
           </h2>
           <Reveal delay={0.15}>
             <p className="meta">
@@ -31,7 +31,7 @@ export default function SelectedWork() {
       <div className="shell">
         <Reveal className="rule flex justify-center pt-12">
           <Link href="/work" className="btn btn-ghost" data-cursor="hover">
-            View all work
+            Tous les projets
             <ArrowRight className="arrow h-4 w-4" />
           </Link>
         </Reveal>

@@ -100,7 +100,7 @@ export default function CaseStudyPage({ params }: Params) {
             data-cursor="hover"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
-            Selected work
+            Projets
           </Link>
 
           <h1 className="mt-8 font-display text-display font-semibold text-paper">
@@ -125,7 +125,7 @@ export default function CaseStudyPage({ params }: Params) {
                   href={project.url}
                   target="_blank"
                   rel="noreferrer noopener"
-                  data-cursor="OPEN"
+                  data-cursor="OUVRIR"
                   className="link-underline inline-flex items-center gap-1.5 text-sm text-paper"
                 >
                   Visiter

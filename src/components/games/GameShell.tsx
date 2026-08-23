@@ -53,7 +53,7 @@ export default function GameShell({
             </p>
           )}
           <p className="meta">
-            Best <span className="text-paper">{pad(best)}</span>
+            Record <span className="text-paper">{pad(best)}</span>
           </p>
           <button
             type="button"
@@ -61,7 +61,7 @@ export default function GameShell({
             className="meta transition-colors duration-200 hover:text-paper"
             aria-pressed={soundOn}
           >
-            Sound {soundOn ? "on" : "off"}
+            Son {soundOn ? "activé" : "coupé"}
           </button>
         </div>
       </div>
@@ -92,7 +92,7 @@ export default function GameShell({
                   compact ? "text-xl" : "text-title",
                 )}
               >
-                {status === "over" ? "GAME OVER" : title}
+                {status === "over" ? "PARTIE TERMINÉE" : title}
               </p>
               {status === "over" && (
                 <p className="meta mt-3">
@@ -103,7 +103,7 @@ export default function GameShell({
                 </p>
               )}
               <button type="button" onClick={onStart} className="btn btn-primary mt-6">
-                {status === "over" ? "Replay" : "Jouer"}
+                {status === "over" ? "Rejouer" : "Jouer"}
               </button>
               <p className="meta mt-5 max-w-[26ch]">{hint}</p>
             </div>

@@ -58,13 +58,13 @@ export default function Hero() {
         <Reveal immediate className="mt-10 flex flex-wrap items-center gap-4 lg:mt-12" delay={0.72}>
           <Magnetic>
             <Link href="/work" className="btn btn-primary" data-cursor="hover">
-              Explore my work
+              Voir mes projets
               <ArrowRight className="arrow h-4 w-4" />
             </Link>
           </Magnetic>
           <Magnetic>
             <Link href="/contact" className="btn btn-ghost" data-cursor="hover">
-              Let&apos;s talk
+              Parlons-en
             </Link>
           </Magnetic>
         </Reveal>
@@ -81,7 +81,7 @@ export default function Hero() {
           <span className="hidden sm:inline"> · {profile.name}</span>
         </p>
         <span className="meta hidden shrink-0 items-center gap-2 sm:inline-flex">
-          Scroll
+          Défiler
           <ArrowDown className="h-3.5 w-3.5" />
         </span>
       </Reveal>

@@ -84,7 +84,7 @@ export default function MobileMenu({
 
           <nav className="shell flex flex-1 flex-col justify-center" aria-label="Navigation principale">
             <ul>
-              {[{ href: "/", label: "Index", index: "00" }, ...NAV].map((item, i) => {
+              {[{ href: "/", label: "Accueil", index: "00" }, ...NAV].map((item, i) => {
                 const active = item.href === "/" ? activeHref === "/" : activeHref.startsWith(item.href);
                 return (
                   <motion.li

@@ -40,8 +40,8 @@ export default function SiteFooter() {
               {profile.name}
             </p>
             <p className="meta mt-4">
-              ENGINEERING <span className="text-blue-text">×</span> PRODUCT{" "}
-              <span className="text-blue-text">×</span> BUSINESS
+              INGÉNIERIE <span className="text-blue-text">×</span> PRODUIT{" "}
+              <span className="text-blue-text">×</span> MÉTIER
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export default function SiteFooter() {
                   <a
                     href={item.href}
                     {...(item.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
-                    data-cursor="OPEN"
+                    data-cursor="OUVRIR"
                     className="link-underline font-display text-lg font-medium tracking-[-0.02em] text-paper/70 transition-colors duration-300 hover:text-paper"
                   >
                     {item.label}

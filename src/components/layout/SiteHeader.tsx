@@ -9,8 +9,8 @@ import MobileMenu from "./MobileMenu";
 import { cn } from "@/lib/utils";
 
 export const NAV = [
-  { href: "/work", label: "Work", index: "01" },
-  { href: "/about", label: "About", index: "02" },
+  { href: "/work", label: "Projets", index: "01" },
+  { href: "/about", label: "À propos", index: "02" },
   { href: "/contact", label: "Contact", index: "03" },
 ] as const;
 

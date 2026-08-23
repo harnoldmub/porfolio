@@ -77,7 +77,7 @@ export default function CartePage() {
               <a
                 href={channel.href}
                 {...(channel.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
-                data-cursor="OPEN"
+                data-cursor="OUVRIR"
                 className="group flex min-h-[4.25rem] items-center justify-between gap-4 py-4"
               >
                 <span className="flex flex-col gap-1">

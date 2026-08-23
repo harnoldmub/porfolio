@@ -18,7 +18,7 @@ export default function Capabilities() {
     <section className="relative py-section" aria-labelledby="capabilities-title">
       <div className="shell">
         <h2 id="capabilities-title" className="font-display text-display font-semibold text-paper">
-          <RevealLines lines={["WHAT I DO."]} />
+          <RevealLines lines={["CE QUE JE FAIS."]} />
         </h2>
 
         <ul className="mt-14 lg:mt-20" onMouseLeave={() => setActive(null)}>

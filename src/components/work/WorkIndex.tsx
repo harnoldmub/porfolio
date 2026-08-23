@@ -27,7 +27,7 @@ export default function WorkIndex({ projects }: { projects: readonly Project[] }
         >
           <Link
             href={`/work/${project.slug}`}
-            data-cursor="VIEW CASE"
+            data-cursor="VOIR"
             onMouseEnter={() => setHovered(project.slug)}
             onFocus={() => setHovered(project.slug)}
             className="grid-12 items-center gap-y-4 py-7 lg:py-8"

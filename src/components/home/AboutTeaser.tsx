@@ -56,7 +56,7 @@ export default function AboutTeaser() {
               id="about-teaser-title"
               className="mt-6 font-display text-title font-semibold text-ink"
             >
-              <RevealLines lines={["I BUILD THINGS", "THAT PEOPLE USE."]} />
+              <RevealLines lines={["JE CONSTRUIS", "CE QUI SERT."]} />
             </h2>
             <Reveal delay={0.12}>
               <p className="measure mt-8 text-lead text-ink/75">{aboutParagraphs[0]}</p>

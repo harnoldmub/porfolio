@@ -16,7 +16,7 @@ export default function NotFound() {
       <div className="shell relative flex flex-1 flex-col justify-center py-16">
         <p className="meta meta-blue">Erreur 404</p>
         <h1 className="mt-6 font-display text-mega font-semibold text-paper">
-          <RevealLines lines={["404", "YOU'RE OFF", "THE GRID."]} immediate delay={0.1} fit />
+          <RevealLines lines={["404", "VOUS ÊTES", "HORS PISTE."]} immediate delay={0.1} fit />
         </h1>
         <p className="measure mt-8 text-lead text-paper/70">
           Cette page n&apos;existe pas. Autant jouer un peu avant de repartir.

@@ -155,9 +155,15 @@ html.lenis, html.lenis body { height: auto; }
   transform: none;
 }
 
+/* The clipping box needs headroom above the cap height or accents get cut —
+   which, on French display copy, means É rendering as E. The padding is
+   cancelled by an equal negative margin so the layout is unchanged, and the
+   reveal still starts fully outside the box. */
 .line-mask {
   display: block;
   overflow: hidden;
+  padding-top: 0.28em;
+  margin-top: -0.28em;
   padding-bottom: 0.09em;
   margin-bottom: -0.09em;
 }

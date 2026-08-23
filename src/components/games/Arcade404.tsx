@@ -51,7 +51,7 @@ export default function Arcade404() {
           data-cursor="hover"
           aria-expanded={showPicker}
         >
-          Play
+          Jouer
           <ArrowRight className="arrow h-4 w-4" />
         </button>
       </div>
@@ -70,7 +70,7 @@ export default function Arcade404() {
               onClick={() => setGame("snake")}
               aria-label="Jouer à AMY Snake"
               className="block w-full text-left"
-              data-cursor="PLAY"
+              data-cursor="JOUER"
             >
               <Snake autoplay compact />
             </button>

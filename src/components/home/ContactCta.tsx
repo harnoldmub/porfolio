@@ -46,7 +46,7 @@ export default function ContactCta() {
                 <a
                   href={link.href}
                   {...(link.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
-                  data-cursor="OPEN"
+                  data-cursor="OUVRIR"
                   className="flex items-center justify-between gap-6 py-5 text-ink transition-colors duration-300 hover:text-blue-text"
                 >
                   <span className="meta">{link.label}</span>

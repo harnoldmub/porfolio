@@ -46,7 +46,7 @@ export default function Manifesto() {
                 {stat.value}
               </p>
               <p className="mt-3 text-sm text-paper/60">{stat.label}</p>
-              <p className="meta mt-1">{stat.note}</p>
+              {"note" in stat && <p className="meta mt-1">{stat.note}</p>}
             </Reveal>
           ))}
         </ul>

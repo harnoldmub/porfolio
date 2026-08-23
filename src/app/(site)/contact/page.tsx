@@ -65,7 +65,7 @@ export default function ContactPage() {
                     {...(channel.href.startsWith("http")
                       ? { target: "_blank", rel: "noreferrer" }
                       : {})}
-                    data-cursor="OPEN"
+                    data-cursor="OUVRIR"
                     className="group flex items-center justify-between gap-4 py-5"
                   >
                     <span className="meta">{channel.label}</span>

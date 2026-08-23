@@ -86,13 +86,13 @@ export default function GameOverlay({
       className="fixed inset-0 z-[130] flex flex-col bg-ink text-paper"
     >
       <div className="shell flex h-[var(--header-h)] shrink-0 items-center justify-between">
-        <p className="meta">Easter egg</p>
+        <p className="meta">Bonus</p>
         <button
           type="button"
           onClick={onClose}
           className="meta inline-flex min-h-11 items-center gap-2 transition-colors hover:text-paper"
         >
-          <span aria-hidden>×</span> Close
+          <span aria-hidden>×</span> Fermer
         </button>
       </div>
 
