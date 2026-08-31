@@ -11,7 +11,6 @@ import {
   getProject,
   getProjectNeighbours,
   projectImage,
-  projectOgImage,
   projects,
 } from "@/data/projects";
 import { buildMetadata, JsonLd, siteUrl } from "@/lib/seo";
@@ -30,7 +29,6 @@ export function generateMetadata({ params }: Params): Metadata {
     title: `${project.name} — ${project.category}`,
     description: `${project.tagline} ${project.summary}`.slice(0, 200),
     path: `/work/${project.slug}`,
-    image: projectOgImage(project.slug),
     type: "article",
   });
 }

@@ -12,9 +12,6 @@ export const siteUrl = (
 
 export const metadataBase = new URL(siteUrl);
 export const siteName = `${profile.shortName} — ${profile.name}`;
-// A compact square mark keeps shared links recognisable without the full-size
-// project artwork taking over the preview.
-export const defaultOg = "/share-icon.png?v=20260831";
 
 export const defaultDescription =
   "Arnold Mubuanga Yate (AMY) — Software Engineer, Product Builder et Chef de Projet IT. Je conçois et développe des applications métier, des plateformes web et des produits digitaux, de l'idée à la production.";
@@ -23,14 +20,12 @@ export function buildMetadata({
   title,
   description = defaultDescription,
   path = "/",
-  image = defaultOg,
   type = "website",
   noIndex = false,
 }: {
   title: string;
   description?: string;
   path?: string;
-  image?: string;
   type?: "website" | "article" | "profile";
   noIndex?: boolean;
 }): Metadata {
@@ -41,7 +36,7 @@ export function buildMetadata({
     alternates: { canonical: path },
     robots: noIndex
       ? { index: false, follow: false }
-      : { index: true, follow: true, "max-image-preview": "large" },
+      : { index: true, follow: true, "max-image-preview": "none" },
     openGraph: {
       title,
       description,
@@ -49,13 +44,11 @@ export function buildMetadata({
       siteName,
       locale: "fr_FR",
       type,
-      images: [{ url: image, width: 512, height: 512, alt: `${siteName} — logo` }],
     },
     twitter: {
       card: "summary",
       title,
       description,
-      images: [image],
     },
   };
 }

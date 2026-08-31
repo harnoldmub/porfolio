@@ -3,7 +3,7 @@ import { Archivo, Inter, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 import { profile } from "@/data/profile";
-import { defaultDescription, defaultOg, identityJsonLd, JsonLd, metadataBase, siteName } from "@/lib/seo";
+import { defaultDescription, identityJsonLd, JsonLd, metadataBase, siteName } from "@/lib/seo";
 
 // Display: a grotesk that holds up at 13vw. Body: Inter for long-form French.
 // Mono: numbers, years, labels — never paragraphs.
@@ -41,20 +41,18 @@ export const metadata: Metadata = {
   publisher: profile.name,
   category: "technology",
   alternates: { canonical: "/" },
-  robots: { index: true, follow: true, "max-image-preview": "large" },
+  robots: { index: true, follow: true, "max-image-preview": "none" },
   openGraph: {
     type: "website",
     locale: "fr_FR",
     siteName,
     title: `${profile.shortName} — Software Engineer & Product Builder`,
     description: defaultDescription,
-    images: [{ url: defaultOg, width: 512, height: 512, alt: `${siteName} — logo` }],
   },
   twitter: {
     card: "summary",
     title: `${profile.shortName} — Software Engineer & Product Builder`,
     description: defaultDescription,
-    images: [defaultOg],
   },
 };
 
