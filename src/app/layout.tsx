@@ -48,10 +48,10 @@ export const metadata: Metadata = {
     siteName,
     title: `${profile.shortName} — Software Engineer & Product Builder`,
     description: defaultDescription,
-    images: [{ url: defaultOg, width: 1200, height: 630, alt: profile.name }],
+    images: [{ url: defaultOg, width: 512, height: 512, alt: `${siteName} — logo` }],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: `${profile.shortName} — Software Engineer & Product Builder`,
     description: defaultDescription,
     images: [defaultOg],

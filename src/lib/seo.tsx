@@ -12,7 +12,9 @@ export const siteUrl = (
 
 export const metadataBase = new URL(siteUrl);
 export const siteName = `${profile.shortName} — ${profile.name}`;
-export const defaultOg = "/og.png";
+// A compact square mark keeps shared links recognisable without the full-size
+// project artwork taking over the preview.
+export const defaultOg = "/share-icon.png?v=20260831";
 
 export const defaultDescription =
   "Arnold Mubuanga Yate (AMY) — Software Engineer, Product Builder et Chef de Projet IT. Je conçois et développe des applications métier, des plateformes web et des produits digitaux, de l'idée à la production.";
@@ -47,10 +49,10 @@ export function buildMetadata({
       siteName,
       locale: "fr_FR",
       type,
-      images: [{ url: image, width: 1200, height: 630, alt: title }],
+      images: [{ url: image, width: 512, height: 512, alt: `${siteName} — logo` }],
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title,
       description,
       images: [image],
