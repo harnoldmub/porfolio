@@ -19,7 +19,7 @@ export const profile = {
   // Hero
   heroLines: ["JE CONSTRUIS", "DES PRODUITS", "NUMÉRIQUES."] as const,
   heroSubtitle:
-    "Je transforme des idées, des besoins métier et des opportunités en produits numériques réellement utilisables — de la conception à la mise en production.",
+    "Je transforme des idées, des besoins métiers et des opportunités en produits numériques réellement utilisables — de la conception à la mise en production.",
   // Manifesto
   manifestoWords: ["INGÉNIERIE", "PRODUIT", "MÉTIER"] as const,
   manifesto:
@@ -37,7 +37,7 @@ export const stats = [
 export const aboutLines = ["JE CONSTRUIS", "CE QUI SERT."] as const;
 
 export const aboutParagraphs = [
-  "Je suis Arnold Mubuanga Yate. Ingénieur développement et chef de projet informatique à la Ville de Lille, entrepreneur digital le reste du temps.",
+  "Je suis Arnold Mubuanga Yate. Ingénieur en développement et chef de projet informatique à la Ville de Lille, entrepreneur digital le reste du temps.",
   "Depuis plus de six ans, je conçois et développe des applications web, des plateformes métier, des systèmes d'information et des produits SaaS pour des organisations publiques, des entreprises et des porteurs de projets.",
   "Avant Lille, j'ai passé six ans chez Dassault Systèmes, dans l'équipe R&D de NETVIBES, sur 3DSearch — une plateforme de recherche utilisée à l'échelle internationale. J'y ai appris ce que veut dire construire pour l'échelle, la performance et la durée.",
   "Le reste de mon temps part dans mes propres produits : plateformes événementielles, outils SaaS, studios créatifs. C'est là que j'apprends le plus vite, parce qu'il n'y a personne d'autre pour cadrer, arbitrer ou livrer.",
@@ -121,7 +121,7 @@ export const experiences = [
     periodLabel: "Depuis novembre 2024",
     year: "2024",
     company: "Ville de Lille",
-    role: "Ingénieur Développement · Chef de Projet Informatique",
+    role: "Ingénieur en développement · Chef de projet informatique",
     summary:
       "Je pilote et développe les applications métier des services municipaux et des associations lilloises, avec une double casquette technique et fonctionnelle.",
     highlights: [
@@ -142,7 +142,7 @@ export const experiences = [
     summary:
       "Développement de fonctionnalités stratégiques de 3DSearch, la plateforme de recherche transverse de la 3DEXPERIENCE, au sein de l'équipe R&D NETVIBES.",
     highlights: [
-      "Fonctionnalités de recherche avancée sur de fortes volumétries",
+      "Fonctionnalités de recherche avancées sur de fortes volumétries",
       "Travail continu sur la performance et l'expérience utilisateur",
       "Projets internationaux, environnement Agile et R&D",
       "Écosystème CATIA, SOLIDWORKS, SIMULIA, DELMIA, ENOVIA, BIOVIA",

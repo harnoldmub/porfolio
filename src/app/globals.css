@@ -357,6 +357,18 @@ html.lenis, html.lenis body { height: auto; }
     #000 66%
   );
 }
+
+/* WebGL is deliberately optional. When the poster is shown instead, this
+   restrained movement preserves the hero's sense of depth without asking a
+   low-power device to render the 3D scene. */
+.ring-fallback-drift {
+  animation: ring-fallback-drift 7s var(--ease) infinite alternate;
+  will-change: transform;
+}
+@keyframes ring-fallback-drift {
+  from { transform: translate3d(-1.5%, 1%, 0) rotate(-1.5deg) scale(1); }
+  to { transform: translate3d(1.5%, -1%, 0) rotate(1.5deg) scale(1.035); }
+}
 @media (min-width: 1024px) {
   .ring-mask {
     -webkit-mask-image: linear-gradient(
@@ -401,4 +413,5 @@ html.lenis, html.lenis body { height: auto; }
   }
   .grain { animation: none; }
   .marquee { animation: none; transform: none; }
+  .ring-fallback-drift { animation: none; transform: none; }
 }

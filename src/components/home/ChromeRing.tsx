@@ -12,9 +12,9 @@ const POSTER = "/assets/3d/chrome-ring.webp";
  * scroll velocity (a short spin impulse) — nothing else moves it.
  *
  * It is a progressive enhancement in the strict sense: the still frame renders
- * first and stays put on touch devices, low-core machines, when reduced motion
- * is requested, or if WebGL fails. Three.js is only fetched once we have
- * decided the canvas is worth it, and never blocks first paint.
+ * first and becomes a subtle animated fallback on low-core machines or if
+ * WebGL fails. Three.js is only fetched once we have decided the canvas is
+ * worth it, and never blocks first paint.
  */
 export default function ChromeRing() {
   const host = useRef<HTMLDivElement>(null);
@@ -274,7 +274,7 @@ export default function ChromeRing() {
         priority
         sizes="(max-width: 1024px) 90vw, 46vw"
         className={`object-contain transition-opacity duration-700 ease-expo ${
-          live ? "opacity-0" : "opacity-100"
+          live ? "opacity-0" : "ring-fallback-drift opacity-100"
         }`}
       />
     </div>

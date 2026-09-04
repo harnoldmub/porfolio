@@ -148,7 +148,7 @@ export const projects: readonly Project[] = [
       "Une direction artistique construite sur le jaune et le bleu de la sélection, une typographie de tribune, et une structure qui met en avant l'action à faire maintenant : rejoindre le bloc, voir la mobilisation du prochain match, connaître les règles du groupe.",
     contribution: [
       "Direction artistique et système visuel",
-      "Développement du site et de l'espace mobilisation",
+      "Développement du site et de l'espace de mobilisation",
       "Modèle de données membres et événements",
       "Mise en production et déploiement",
     ],
@@ -157,7 +157,7 @@ export const projects: readonly Project[] = [
       "Adhésion au bloc",
       "Charte et piliers du mouvement",
       "Actualités et médias",
-      "Bandeau d'annonces jour de match",
+      "Bandeau d'annonces les jours de match",
     ],
     featured: 4,
   },
@@ -260,7 +260,7 @@ export const projects: readonly Project[] = [
     category: "Fintech",
     role: "Conception · Développement",
     url: "http://awanetwork.com/",
-    tagline: "Une intégration, tous les mobile money de la RDC.",
+    tagline: "Une intégration, tous les Mobile Money de la RDC.",
     summary:
       "La vitrine produit d'une plateforme de paiement qui connecte les entreprises à Orange Money, Airtel Money, Africell et M-Pesa via une seule intégration.",
     stack: ["Next.js", "API", "Documentation produit"],
